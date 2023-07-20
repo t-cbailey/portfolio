@@ -1,0 +1,9 @@
+header {
+  height: 10%;
+  background-image: linear-gradient(#a1cff1, #8bcafa);
+  font-size: 1.5em;
+  color: #626262;
+
+  padding: 10px;
+  margin-bottom: -1px;
+}
