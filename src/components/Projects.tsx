@@ -1,21 +1,39 @@
 import "../styling/projects.css";
-import barkapedia from "../assets/barkapedia.gif";
-import ncGames from "../assets/ncgames.gif";
+import React from "react";
+import { getProjects } from "../../utils";
+import { ProjectRes } from "../../types/CustomTypes";
+import { Link } from "react-router-dom";
 
 function Projects() {
+  const [projects, setProjects] = React.useState([]);
+  const [loading, setLoading] = React.useState(true);
+
+  React.useEffect(() => {
+    getProjects().then((res) => {
+      res.data.data && setProjects(res.data.data);
+      setLoading(false);
+    });
+  }, [projects]);
+
   return (
     <>
       <h2 id="projectsTitle">Select a project</h2>
-      <ul className="projectScroller">
-        <li>
-          <img src={barkapedia} alt="barkapedia demo" />
-          <h3 className="projectName"> Barkapedia</h3>
-        </li>
-        <li>
-          <img src={ncGames} alt="nc games demo" />
-          <h3 className="projectName"> NC Games</h3>
-        </li>
-      </ul>
+      {loading ? (
+        <h3 className="loading">Loading...</h3>
+      ) : (
+        <ul className="projectScroller">
+          {projects.map((project: ProjectRes) => {
+            return (
+              <li key={project.id}>
+                <Link key={project.id} to={project.id}>
+                  <img src={project.imgURL} alt="barkapedia demo" />
+                  <h3 className="projectName"> {project.name}</h3>
+                </Link>
+              </li>
+            );
+          })}
+        </ul>
+      )}
     </>
   );
 }

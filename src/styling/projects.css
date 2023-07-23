@@ -24,6 +24,7 @@
 
 .projectScroller img {
   height: 50vh;
+  width: 24vh;
   margin-top: 10%;
   box-shadow: rgb(163, 163, 163) 5px 5px 7px;
   border-radius: 20px;
