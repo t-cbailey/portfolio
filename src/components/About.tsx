@@ -52,29 +52,42 @@ function About() {
     };
   }, []);
 
+  function handleClick() {
+    console.log("in func");
+    window.open(
+      "https://storage.cloud.google.com/personal-portfolio-9fb89.appspot.com/Tim%20Bailey%20CV.pdf?authuser=1"
+    );
+  }
+
   return (
     <>
       <div id="about">
         <div className="aboutText">
-          <h2 id="aboutTitle">Hi, I'm Tim</h2>
+          <h2 id="aboutTitle">Hello, I'm Tim</h2>
           <p id="aboutBody">
-            I'm a musician turned coder, intent on finding my place in the world
-            of software development.
+            I'm a musician and sound engineer turned software developer.
           </p>
         </div>
         {timer && <div className="icon-scroll"></div>}
         <div className="aboutText">
           <p id="aboutBody">
-            Outside of coding, I love to mountain bike my local trails in the
-            peak district, camp, hike, and box.
+            Having recently completed a software development bootcamp at
+            <span style={{ color: "red" }}> Northcoders</span> I am looking for
+            my first role in the tech industry.
           </p>
         </div>
+
         <div className="aboutText">
           <p id="aboutBody">
-            Performing and composing with a 9 piece funk band is my favourite
-            creative outlet!
+            Over a decade of self-employment has ingrained in me a robust work
+            ethic, adaptability and strong organisational skills. Regularly
+            leading small teams has also honed my leadership abilities.
           </p>
         </div>
+
+        <button id="cvbutton" type="submit" onClick={handleClick}>
+          Download my CV
+        </button>
       </div>
     </>
   );

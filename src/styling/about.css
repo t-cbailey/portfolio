@@ -7,10 +7,11 @@
   background-position: center -100px;
   background-attachment: fixed;
   scroll-behavior: smooth;
+  min-height: 100vh;
 }
 
 .aboutText {
-  padding: 10% 0 100% 8%;
+  padding: 5% 0 5% 8%;
   color: black;
 }
 
@@ -88,4 +89,9 @@
     opacity: 0;
     transform: translateY(0px);
   }
+}
+
+#cvbutton {
+  margin: 15% 30% 20vh 30%;
+  width: 40%;
 }

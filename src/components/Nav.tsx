@@ -32,15 +32,15 @@ function Nav() {
             </Link>
           </li>
           <li className="navItem">
-            <Link to="/experience" className="navIcons">
-              <FaStar />
-              Experience
-            </Link>
-          </li>
-          <li className="navItem">
             <Link to="/certifications" className="navIcons">
               <PiCertificateBold />
               Certifications
+            </Link>
+          </li>
+          <li className="navItem">
+            <Link to="/contact" className="navIcons">
+              <FaStar />
+              Contact
             </Link>
           </li>
         </ul>

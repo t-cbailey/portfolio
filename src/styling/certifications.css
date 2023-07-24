@@ -1,0 +1,19 @@
+#certtitle {
+  text-align: center;
+}
+#certlistitem {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.certificate {
+  width: 80%;
+  margin: 5% 0;
+}
+
+#certlist {
+  padding: 0;
+  margin: 0;
+}
