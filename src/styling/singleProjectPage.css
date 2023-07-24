@@ -1,0 +1,52 @@
+#SPtitle {
+  text-align: center;
+}
+
+#SPdescription {
+  margin: 0% 10% 10%;
+}
+
+#SPDemoImg {
+  height: 30vh;
+  width: 14vh;
+  border-radius: 20px;
+  border: 3px solid rgb(52, 52, 52);
+  margin: 10% 5% 10% 10%;
+}
+
+.SPlink {
+  padding: 5%;
+}
+
+#SPlist {
+  margin: 10% 10% 10% 5%;
+  padding: 2%;
+}
+
+#SPlisttitle {
+  margin-top: 0px;
+}
+
+#SPcontainer {
+  display: flex;
+  flex-direction: row;
+  border-top: solid #626262 2px;
+  border-bottom: solid #626262 2px;
+  max-width: 100%;
+}
+
+#SPstack {
+  display: flex;
+  flex-direction: row;
+  max-width: 100%;
+  padding: 5%;
+  flex-wrap: wrap;
+}
+
+.SPstackitem {
+  list-style: none;
+  background-color: #d6f7d3;
+  margin: 1%;
+  padding: 1%;
+  border-radius: 10px;
+}

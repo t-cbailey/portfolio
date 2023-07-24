@@ -10,7 +10,7 @@ function Projects() {
 
   React.useEffect(() => {
     getProjects().then((res) => {
-      res.data.data && setProjects(res.data.data);
+      setProjects(res.data.data);
       setLoading(false);
     });
   }, [projects]);

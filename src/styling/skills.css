@@ -1,0 +1,90 @@
+* {
+  box-sizing: border-box;
+}
+
+#skillcontainer {
+  width: 80%;
+  margin: 10%;
+}
+
+.barcontainer {
+  width: 100%;
+  height: 2vh;
+  background-color: #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+  border: #8bcafa 2px solid;
+}
+
+.skills {
+  text-align: right;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  color: #626262;
+}
+
+.html {
+  width: 80%;
+  background-image: linear-gradient(to right, white, #fabb8b);
+  animation: expandWidth 4s;
+}
+.css {
+  width: 80%;
+  background-image: linear-gradient(to right, white, #fabb8b);
+}
+.js {
+  width: 100%;
+  background-image: linear-gradient(to right, white, #fabb8b);
+}
+.typescript {
+  width: 70%;
+  background-image: linear-gradient(to right, white, #fabb8b);
+}
+.sql {
+  width: 50%;
+  background-image: linear-gradient(to right, white, #fabb8b);
+}
+
+.firebase {
+  width: 40%;
+  background-image: linear-gradient(to right, white, #fabb8b);
+}
+.react {
+  width: 90%;
+  background-image: linear-gradient(to right, white, #fabb8b);
+}
+
+#Stitle {
+  text-align: center;
+}
+
+.leadership {
+  width: 80%;
+  background-image: linear-gradient(to right, white, #fabb8b);
+}
+
+.timeManagment {
+  width: 80%;
+  background-image: linear-gradient(to right, white, #fabb8b);
+}
+
+.creativity {
+  width: 100%;
+  background-image: linear-gradient(to right, white, #fabb8b);
+}
+.teamwork {
+  width: 90%;
+  background-image: linear-gradient(to right, white, #fabb8b);
+}
+.problemSolving {
+  width: 70%;
+  background-image: linear-gradient(to right, white, #fabb8b);
+}
+.communication {
+  width: 80%;
+  background-image: linear-gradient(to right, white, #fabb8b);
+}
+.emotionalIntelligence {
+  width: 90%;
+  background-image: linear-gradient(to right, white, #fabb8b);
+}

@@ -1,12 +1,14 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { getSingleProject } from "../../utils";
 import { useParams } from "react-router-dom";
 import { Project } from "../../types/CustomTypes";
+import "../styling/singleProjectPage.css";
 
 function SingleProjectPage() {
   const { project_id } = useParams();
   const [singleProject, setSingleProject] = useState<Project>();
   const [isLoading, setIsLoading] = useState(true);
+  const [stack, setStack] = React.useState<string[]>([]);
 
   useEffect(() => {
     getSingleProject(project_id)
@@ -17,7 +19,14 @@ function SingleProjectPage() {
       .catch((error) => {
         console.log("Error fetching single park or reviews", error);
       });
-  }, [project_id]);
+  }, []);
+
+  useEffect(() => {
+    if (singleProject) {
+      const stackArr = singleProject.stack.split(",");
+      setStack(stackArr);
+    }
+  }, [singleProject]);
 
   if (isLoading) {
     return <h3 className="loading">Loading...</h3>;
@@ -28,9 +37,44 @@ function SingleProjectPage() {
   } else
     return (
       <>
-        <h3>{singleProject.name}</h3>
-        <p>{singleProject.description}</p>
-        <img src={singleProject.imgURL} alt={singleProject.name} />
+        <h2 id="SPtitle">{singleProject.name}</h2>
+        <p id="SPdescription">{singleProject.description}</p>
+        <div id="SPcontainer">
+          <img
+            src={singleProject.imgURL}
+            alt={singleProject.name}
+            id="SPDemoImg"
+          />
+
+          <ul id="SPlist">
+            <h3 id="SPlisttitle">Links</h3>
+            <li className="SPlink">
+              <a href={singleProject.githubFE} target="_blank">
+                Github Frontend
+              </a>
+            </li>
+            <li className="SPlink">
+              <a href={singleProject.githubBE} target="_blank">
+                Github Backend
+              </a>
+            </li>
+            <li className="SPlink">
+              <a href={singleProject.livelink} target="_blank">
+                Live Site Link
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <ul id="SPstack">
+          {stack.map((item) => {
+            return (
+              <li key={item} className="SPstackitem">
+                {item}
+              </li>
+            );
+          })}
+        </ul>
       </>
     );
 }
