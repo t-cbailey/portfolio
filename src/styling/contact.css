@@ -1,0 +1,29 @@
+#contactTitle {
+  text-align: center;
+}
+#contactForm {
+  margin: auto;
+  width: 80%;
+  max-width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.inputField {
+  width: 100%;
+  margin-top: 2%;
+  margin-bottom: 2%;
+  padding: 2%;
+}
+.messageInput {
+  width: 100%;
+  resize: vertical;
+  margin-top: 2%;
+  margin-bottom: 2%;
+  padding: 5%;
+  height: 20rem;
+}
+
+#submitButton {
+  margin-top: 2%;
+}

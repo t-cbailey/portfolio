@@ -17,3 +17,14 @@ export const getSingleProject = (project_id: string | undefined) => {
     })
     .catch((err) => err);
 };
+
+export const postMessage = (msg: any) => {
+  return server
+    .post("/contact", msg)
+    .then((result) => {
+      return result.data;
+    })
+    .catch((err) => {
+      err;
+    });
+};
