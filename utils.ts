@@ -25,6 +25,6 @@ export const postMessage = (msg: any) => {
       return result.data;
     })
     .catch((err) => {
-      err;
+      return err;
     });
 };

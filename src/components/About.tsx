@@ -17,7 +17,7 @@ function About() {
   React.useEffect(() => {
     setTimeout(() => {
       setTimer(true);
-    }, 3500);
+    }, 4000);
   }, [timer]);
 
   React.useEffect(() => {

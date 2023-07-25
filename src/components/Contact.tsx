@@ -45,8 +45,12 @@ function Contact() {
     } else {
       setSending(true);
       postMessage(msg)
-        .then(() => {
-          alert("message sent");
+        .then((res) => {
+          if (res instanceof Error) {
+            alert("message failed");
+          } else {
+            alert("message sent");
+          }
         })
         .then(() => {
           setSending(false);
@@ -89,7 +93,7 @@ function Contact() {
             onChange={handleMessageBodyChange}
           />
           <button id="submitButton" type="submit" onClick={handleSubmit}>
-            submit
+            Submit
           </button>
         </form>
       </>
