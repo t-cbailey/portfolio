@@ -17,3 +17,12 @@ export interface Msg {
   subject: string;
   messageBody: string;
 }
+
+export interface FirebaseConfig {
+  apiKey: string;
+  authDomain: string;
+  projectId: string;
+  storageBucket: string;
+  messagingSenderId: string;
+  appId: string;
+}
