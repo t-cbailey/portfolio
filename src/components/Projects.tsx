@@ -7,13 +7,22 @@ import { Link } from "react-router-dom";
 function Projects() {
   const [projects, setProjects] = React.useState([]);
   const [loading, setLoading] = React.useState(true);
+  const [loadErr, setLoadErr] = React.useState(false);
 
   React.useEffect(() => {
     getProjects().then((res) => {
-      setProjects(res.data.data);
-      setLoading(false);
+      if (res.data && res.data.data) {
+        setProjects(res.data.data);
+        setLoading(false);
+      } else {
+        setLoadErr(true);
+      }
     });
   }, [projects]);
+
+  if (loadErr) {
+    return <h3 className="error">Error- reload the page and try again.</h3>;
+  }
 
   return (
     <>
