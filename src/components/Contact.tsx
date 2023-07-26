@@ -8,22 +8,24 @@ function Contact() {
   const [subject, setSubject] = React.useState<string>("");
   const [messageBody, setMessageBody] = React.useState<string>("");
   const [sending, setSending] = React.useState(false);
+  const [error, setError] = React.useState(false);
+  const [success, setSuccess] = React.useState(false);
 
-  function handleNameChange(e: any) {
+  function handleNameChange(e: React.ChangeEvent<HTMLInputElement>) {
     setName(e.target.value);
   }
 
-  function handleEmailChange(e: any) {
+  function handleEmailChange(e: React.ChangeEvent<HTMLInputElement>) {
     setEmail(e.target.value);
   }
-  function handleSubjectChange(e: any) {
+  function handleSubjectChange(e: React.ChangeEvent<HTMLInputElement>) {
     setSubject(e.target.value);
   }
-  function handleMessageBodyChange(e: any) {
+  function handleMessageBodyChange(e: React.ChangeEvent<HTMLTextAreaElement>) {
     setMessageBody(e.target.value);
   }
 
-  function handleSubmit(e: any) {
+  function handleSubmit(e: React.MouseEvent<HTMLButtonElement>) {
     e.preventDefault();
     const msg = {
       name: name,
@@ -47,9 +49,9 @@ function Contact() {
       postMessage(msg)
         .then((res) => {
           if (res instanceof Error) {
-            alert("message failed");
+            setError(true);
           } else {
-            alert("message sent");
+            setSuccess(true);
           }
         })
         .then(() => {
@@ -63,6 +65,9 @@ function Contact() {
   }
 
   if (sending) return <h2 className="sending">sending...</h2>;
+  if (error)
+    return <h3 className="error">Error- reload the page and try again.</h3>;
+  if (success) return <h3 className="error">Message sent</h3>;
   else
     return (
       <>

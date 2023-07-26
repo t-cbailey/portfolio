@@ -10,3 +10,10 @@ export interface Project {
 export interface ProjectRes extends Project {
   id: string;
 }
+
+export interface Msg {
+  name: string;
+  email: string;
+  subject: string;
+  messageBody: string;
+}

@@ -19,3 +19,10 @@
     opacity: 0;
   }
 }
+
+.error {
+  text-align: center;
+  width: 100%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}

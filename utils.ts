@@ -1,4 +1,5 @@
 import server from "./Api";
+import { Msg } from "./types/CustomTypes";
 
 export const getProjects = () => {
   return server
@@ -18,7 +19,7 @@ export const getSingleProject = (project_id: string | undefined) => {
     .catch((err) => err);
 };
 
-export const postMessage = (msg: any) => {
+export const postMessage = (msg: Msg) => {
   return server
     .post("/contact", msg)
     .then((result) => {
