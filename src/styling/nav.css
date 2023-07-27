@@ -2,7 +2,7 @@ nav {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  background-image: linear-gradient(#8bcafa, #dde0e7 90%);
+  background-image: linear-gradient(#8bcafa, #ffffff 90%);
   width: 100%;
   position: sticky;
   top: 0;
@@ -13,6 +13,7 @@ nav {
   flex-direction: row;
   justify-content: space-around;
   padding: 0px;
+  animation: 1s ease-out 0s 1 slideInFromRight;
 }
 
 .navItem {
@@ -26,4 +27,19 @@ nav {
   justify-content: center;
   align-items: center;
   padding: 10px;
+}
+
+@keyframes slideInFromRight {
+  0% {
+    transform: translateX(100%);
+  }
+  70% {
+    transform: translateX(0);
+  }
+  85% {
+    transform: translateX(3%);
+  }
+  100% {
+    transform: translateX(0);
+  }
 }

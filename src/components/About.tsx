@@ -62,32 +62,32 @@ function About() {
   return (
     <>
       <div id="about">
-        <div className="aboutText">
-          <h2 id="aboutTitle">Hello, I'm Tim</h2>
-          <p id="aboutBody">
-            I'm a musician and sound engineer turned software developer.
-          </p>
-        </div>
-        {timer && <div className="icon-scroll"></div>}
-        <div className="aboutText">
-          <p id="aboutBody">
-            Having recently completed a software development bootcamp at
-            <span style={{ color: "red" }}> Northcoders</span> I am looking for
-            my first role in the tech industry.
-          </p>
-        </div>
+        <div id="aboutContainer">
+          <section className="aboutText">
+            <h2 id="aboutTitle">Hello, I'm Tim</h2>
+            <p id="aboutBody">I'm a junior full stack software developer.</p>
+          </section>
+          {timer && <div className="icon-scroll"></div>}
+          <section className="aboutText">
+            <p id="aboutBody">
+              Having recently completed a software development bootcamp at
+              <span style={{ color: "red" }}> Northcoders</span> I am looking
+              for my first role in the tech industry.
+            </p>
+          </section>
 
-        <div className="aboutText">
-          <p id="aboutBody">
-            Over a decade of self-employment has ingrained in me a robust work
-            ethic, adaptability and strong organisational skills. Regularly
-            leading small teams has also honed my leadership abilities.
-          </p>
-        </div>
+          <section className="aboutText">
+            <p id="aboutBody">
+              Over a decade of self-employment has ingrained in me a robust work
+              ethic, adaptability and strong organisational skills. Regularly
+              leading small teams has also honed my leadership abilities.
+            </p>
+          </section>
 
-        <button id="cvbutton" type="submit" onClick={handleClick}>
-          Download my CV
-        </button>
+          <button id="cvbutton" type="submit" onClick={handleClick}>
+            Download my CV
+          </button>
+        </div>
       </div>
     </>
   );
