@@ -1,8 +1,7 @@
 import server from "./Api";
 import { Msg } from "./types/CustomTypes";
-import { getStorage, ref, getDownloadURL, listAll } from "firebase/storage";
+import { ref, getDownloadURL, listAll } from "firebase/storage";
 import { storage } from "./Firebase";
-import { link } from "fs";
 
 export const getProjects = () => {
   return server
