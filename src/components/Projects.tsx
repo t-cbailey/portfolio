@@ -22,28 +22,25 @@ function Projects() {
 
   if (loadErr) {
     return <h3 className="error">Error- reload the page and try again.</h3>;
+  } else if (loading) {
+    <h3 className="loading">Loading...</h3>;
   } else if (projects.length < 1) {
     return <h3 className="error">No projects</h3>;
   } else
     return (
       <>
-        <h2 id="projectsTitle">Select a project</h2>
-        {loading ? (
-          <h3 className="loading">Loading...</h3>
-        ) : (
-          <ul className="projectScroller">
-            {projects.map((project: ProjectRes) => {
-              return (
-                <li key={project.id}>
-                  <Link key={project.id} to={project.id}>
-                    <img src={project.imgURL} alt="barkapedia demo" />
-                    <h3 className="projectName"> {project.name}</h3>
-                  </Link>
-                </li>
-              );
-            })}
-          </ul>
-        )}
+        <ul className="projectScroller">
+          {projects.map((project: ProjectRes) => {
+            return (
+              <li key={project.id}>
+                <Link key={project.id} to={project.id}>
+                  <img src={project.imgURL} alt="barkapedia demo" />
+                  <h3 className="projectName"> {project.name}</h3>
+                </Link>
+              </li>
+            );
+          })}
+        </ul>
       </>
     );
 }
