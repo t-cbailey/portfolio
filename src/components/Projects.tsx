@@ -1,6 +1,6 @@
 import "../styling/projects.css";
 import React from "react";
-import { getProjects } from "../../utils";
+import { getImg, getProjects } from "../../utils";
 import { ProjectRes } from "../../types/CustomTypes";
 import { Link } from "react-router-dom";
 
@@ -10,14 +10,27 @@ function Projects() {
   const [loadErr, setLoadErr] = React.useState(false);
 
   React.useEffect(() => {
-    getProjects().then((res) => {
-      if (res.data && res.data.data) {
-        setProjects(res.data.data);
+    getProjects()
+      .then((res) => {
+        if (res.data && res.data.data) {
+          const projArr = res.data.data;
+          return projArr;
+        } else {
+          setLoadErr(true);
+        }
+      })
+      .then((projArr) => {
+        projArr.map((proj: ProjectRes) => {
+          getImg(proj.imgURL).then((url) => {
+            if (url) return (proj.imgURL = url);
+          });
+        });
+        return projArr;
+      })
+      .then((projArr) => {
+        setProjects(projArr);
         setLoading(false);
-      } else {
-        setLoadErr(true);
-      }
-    });
+      });
   }, []);
 
   if (loadErr) {
@@ -34,7 +47,7 @@ function Projects() {
             return (
               <li key={project.id}>
                 <Link key={project.id} to={project.id}>
-                  <img src={project.imgURL} alt="barkapedia demo" />
+                  <img src={project.imgURL} alt={project.name} />
                   <h3 className="projectName"> {project.name}</h3>
                 </Link>
               </li>
