@@ -1,32 +1,39 @@
 import "../styling/certifications.css";
+import { getFileRefs, getImg } from "../../utils";
+import React from "react";
 
 function Certifications() {
+  const [certs, setCerts] = React.useState<string[]>([]);
+  const [loading, setLoading] = React.useState(false);
+
+  React.useEffect(() => {
+    setLoading(true);
+    getFileRefs("certs/").then((fileNames) => {
+      fileNames &&
+        fileNames.forEach((imgUrl) => {
+          getImg(imgUrl).then((URL) => {
+            URL && setCerts((curr) => [...curr, URL]);
+            setLoading(false);
+          });
+        });
+    });
+  }, []);
+
+  if (loading) {
+    return <h3 className="loading">Loading...</h3>;
+  }
   return (
     <>
       <h2 id="certtitle">Certifications</h2>
 
       <ul id="certlist">
-        <li id="certlistitem">
-          <img
-            src="https://storage.cloud.google.com/personal-portfolio-9fb89.appspot.com/Northcoders%20cert.png?authuser=1"
-            alt="Northcoders Software Dev Bootcamp"
-            className="certificate"
-          />
-        </li>
-        <li id="certlistitem">
-          <img
-            src="https://storage.cloud.google.com/personal-portfolio-9fb89.appspot.com/FCC%20JS.png?authuser=1"
-            alt="FCC Javascript"
-            className="certificate"
-          />
-        </li>
-        <li id="certlistitem">
-          <img
-            src="https://storage.cloud.google.com/personal-portfolio-9fb89.appspot.com/FCC%20responsive%20design.png?authuser=1"
-            alt="FCC Responsive Design"
-            className="certificate"
-          />
-        </li>
+        {certs.map((cert, i) => {
+          return (
+            <li key={cert + i} id="certlistitem">
+              <img src={cert} alt={cert} className="certificate" />
+            </li>
+          );
+        })}
       </ul>
     </>
   );

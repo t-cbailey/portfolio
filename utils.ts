@@ -1,5 +1,8 @@
 import server from "./Api";
 import { Msg } from "./types/CustomTypes";
+import { getStorage, ref, getDownloadURL, listAll } from "firebase/storage";
+import { storage } from "./Firebase";
+import { link } from "fs";
 
 export const getProjects = () => {
   return server
@@ -27,5 +30,30 @@ export const postMessage = (msg: Msg) => {
     })
     .catch((err) => {
       return err;
+    });
+};
+
+export const getImg = (fileName: string) => {
+  return getDownloadURL(ref(storage, fileName))
+    .then((url) => {
+      return url;
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
+
+export const getFileRefs = (folderName: string) => {
+  const listRef = ref(storage, folderName);
+  const linkArr: string[] = [];
+  return listAll(listRef)
+    .then((res) => {
+      res.items.forEach((itemRef) => {
+        linkArr.push(itemRef.fullPath);
+      });
+      return linkArr;
+    })
+    .catch((error) => {
+      console.log(error);
     });
 };
