@@ -5,11 +5,12 @@ import { ProjectRes } from "../../types/CustomTypes";
 import { Link } from "react-router-dom";
 
 function Projects() {
-  const [projects, setProjects] = React.useState([]);
+  const [projects, setProjects] = React.useState<ProjectRes[]>([]);
   const [loading, setLoading] = React.useState(true);
   const [loadErr, setLoadErr] = React.useState(false);
 
   React.useEffect(() => {
+    setLoading(true);
     getProjects()
       .then((res) => {
         if (res.data && res.data.data) {
@@ -17,15 +18,18 @@ function Projects() {
           return projArr;
         } else {
           setLoadErr(true);
+          return [];
         }
       })
       .then((projArr) => {
-        projArr.map((proj: ProjectRes) => {
-          getImg(proj.imgURL).then((url) => {
-            if (url) return (proj.imgURL = url);
-          });
-        });
-        return projArr;
+        return Promise.all(
+          projArr.map((proj: ProjectRes) => {
+            return getImg(proj.imgURL).then((url) => {
+              if (url) proj.imgURL = url;
+              return proj;
+            });
+          })
+        );
       })
       .then((projArr) => {
         setProjects(projArr);
@@ -35,8 +39,9 @@ function Projects() {
 
   if (loadErr) {
     return <h3 className="error">Error- reload the page and try again.</h3>;
-  } else if (loading) {
-    <h3 className="loading">Loading...</h3>;
+  }
+  if (loading) {
+    return <h3 className="loading">Loading...</h3>;
   } else if (projects.length < 1) {
     return <h3 className="error">No projects</h3>;
   } else

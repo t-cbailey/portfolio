@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { getSingleProject } from "../../utils";
+import { getSingleProject, getImg } from "../../utils";
 import { useParams } from "react-router-dom";
 import { Project } from "../../types/CustomTypes";
 import "../styling/singleProjectPage.css";
@@ -12,8 +12,14 @@ function SingleProjectPage() {
 
   useEffect(() => {
     getSingleProject(project_id)
-      .then((project) => {
-        setSingleProject(project.data);
+      .then((proj) => {
+        return getImg(proj.data.imgURL).then((url) => {
+          if (url) proj.data.imgURL = url;
+          return proj;
+        });
+      })
+      .then((proj) => {
+        setSingleProject(proj.data);
         setIsLoading(false);
       })
       .catch((error) => {
