@@ -32,7 +32,7 @@ export const postMessage = (msg: Msg) => {
     });
 };
 
-export const getImg = (fileName: string) => {
+export const getFile = (fileName: string) => {
   return getDownloadURL(ref(storage, fileName))
     .then((url) => {
       return url;

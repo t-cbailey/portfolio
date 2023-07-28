@@ -1,11 +1,13 @@
 import React from "react";
 import "../styling/about.css";
 import { Link } from "react-router-dom";
+import CV from "../assets/Tim Bailey CV.pdf";
 
 function About() {
   const [timer, setTimer] = React.useState(false);
   const [scrollDirection, setScrollDirection] = React.useState("scrollDown");
   const [scrollPostition, setScrollPosition] = React.useState(0);
+
   React.useEffect(() => {
     document.documentElement.style.setProperty(
       "--scroll-animation",
@@ -75,9 +77,7 @@ function About() {
   }, []);
 
   function handleClick() {
-    window.open(
-      "https://storage.cloud.google.com/personal-portfolio-9fb89.appspot.com/Tim%20Bailey%20CV.pdf?authuser=1"
-    );
+    window.open(CV);
   }
 
   return (

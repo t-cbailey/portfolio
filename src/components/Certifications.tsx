@@ -1,5 +1,5 @@
 import "../styling/certifications.css";
-import { getFileRefs, getImg } from "../../utils";
+import { getFileRefs, getFile } from "../../utils";
 import React from "react";
 
 function Certifications() {
@@ -11,7 +11,7 @@ function Certifications() {
     getFileRefs("certs/").then((fileNames) => {
       fileNames &&
         fileNames.forEach((imgUrl) => {
-          getImg(imgUrl).then((URL) => {
+          getFile(imgUrl).then((URL) => {
             URL && setCerts((curr) => [...curr, URL]);
             setLoading(false);
           });
