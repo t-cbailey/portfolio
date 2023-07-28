@@ -1,10 +1,11 @@
 import React from "react";
 import "../styling/about.css";
+import { Link } from "react-router-dom";
 
 function About() {
   const [timer, setTimer] = React.useState(false);
   const [scrollDirection, setScrollDirection] = React.useState("scrollDown");
-
+  const [scrollPostition, setScrollPosition] = React.useState(0);
   React.useEffect(() => {
     document.documentElement.style.setProperty(
       "--scroll-animation",
@@ -13,6 +14,25 @@ function About() {
         : "scrollUpAnimation"
     );
   }, [scrollDirection]);
+
+  const windowHeight = window.innerHeight;
+  const aboutB = document.getElementById("aboutB");
+  const aboutC = document.getElementById("aboutC");
+  const aboutD = document.getElementById("aboutD");
+  const cvButton = document.getElementById("cvbutton");
+  const enterpoint = windowHeight * 0.2;
+  if (aboutB) {
+    aboutB.style.opacity = `${scrollPostition / enterpoint}`;
+  }
+  if (aboutC) {
+    aboutC.style.opacity = `${scrollPostition / enterpoint - 0.5}`;
+  }
+  if (aboutD) {
+    aboutD.style.opacity = `${scrollPostition / enterpoint - 1.5}`;
+  }
+  if (cvButton) {
+    cvButton.style.opacity = `${scrollPostition / enterpoint - 2}`;
+  }
 
   React.useEffect(() => {
     setTimeout(() => {
@@ -23,6 +43,8 @@ function About() {
   React.useEffect(() => {
     const handleScroll = () => {
       setTimer(false);
+      const position = window.pageYOffset;
+      setScrollPosition(position);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -53,7 +75,6 @@ function About() {
   }, []);
 
   function handleClick() {
-    console.log("in func");
     window.open(
       "https://storage.cloud.google.com/personal-portfolio-9fb89.appspot.com/Tim%20Bailey%20CV.pdf?authuser=1"
     );
@@ -65,27 +86,39 @@ function About() {
         <div id="aboutContainer">
           <section className="aboutText">
             <h2 id="aboutTitle">Hello, I'm Tim</h2>
-            <p id="aboutBody">I'm a junior full stack software developer.</p>
+            <p className="aboutBody" id="aboutA">
+              I'm a junior full stack software developer.
+            </p>
           </section>
           {timer && <div className="icon-scroll"></div>}
           <section className="aboutText">
-            <p id="aboutBody">
+            <p className="aboutBody" id="aboutB">
               Having recently completed a software development bootcamp at
-              <span style={{ color: "red" }}> Northcoders</span> I am looking
-              for my first role in the tech industry.
+              <a href="https://northcoders.com/" target="blank">
+                <span style={{ color: "red" }}> Northcoders</span>
+              </a>{" "}
+              I am looking for my first role in the tech industry.
             </p>
           </section>
 
           <section className="aboutText">
-            <p id="aboutBody">
+            <p className="aboutBody" id="aboutC">
               Over a decade of self-employment has ingrained in me a robust work
               ethic, adaptability and strong organisational skills. Regularly
               leading small teams has also honed my leadership abilities.
             </p>
           </section>
+          <section className="aboutText">
+            <p className="aboutBody" id="aboutD">
+              <Link to="/projects">
+                <span style={{ color: "red" }}>Check out my Projects, </span>
+              </Link>
+              or dowload my CV below.
+            </p>
+          </section>
 
           <button id="cvbutton" type="submit" onClick={handleClick}>
-            Download my CV
+            Download CV
           </button>
         </div>
       </div>
