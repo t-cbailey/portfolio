@@ -27,13 +27,13 @@ function About() {
     aboutB.style.opacity = `${scrollPostition / enterpoint}`;
   }
   if (aboutC) {
-    aboutC.style.opacity = `${scrollPostition / enterpoint - 0.5}`;
+    aboutC.style.opacity = `${scrollPostition / enterpoint - 1.8}`;
   }
   if (aboutD) {
-    aboutD.style.opacity = `${scrollPostition / enterpoint - 1.5}`;
+    aboutD.style.opacity = `${scrollPostition / enterpoint - 2.3}`;
   }
   if (cvButton) {
-    cvButton.style.opacity = `${scrollPostition / enterpoint - 2}`;
+    cvButton.style.opacity = `${scrollPostition / enterpoint - 2.8}`;
   }
 
   React.useEffect(() => {
