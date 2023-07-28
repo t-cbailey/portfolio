@@ -9,7 +9,7 @@ function Nav() {
       <IconContext.Provider
         value={{
           size: "2em",
-          color: "#626262",
+          color: "#424242",
         }}
       >
         <ul id="navItems">
