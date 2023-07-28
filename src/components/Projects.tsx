@@ -1,6 +1,6 @@
 import "../styling/projects.css";
 import React from "react";
-import { getImg, getProjects } from "../../utils";
+import { getFile, getProjects } from "../../utils";
 import { ProjectRes } from "../../types/CustomTypes";
 import { Link } from "react-router-dom";
 
@@ -24,7 +24,7 @@ function Projects() {
       .then((projArr) => {
         return Promise.all(
           projArr.map((proj: ProjectRes) => {
-            return getImg(proj.imgURL).then((url) => {
+            return getFile(proj.imgURL).then((url) => {
               if (url) proj.imgURL = url;
               return proj;
             });
