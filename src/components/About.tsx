@@ -2,8 +2,9 @@ import React from "react";
 import "../styling/about.css";
 import { Link } from "react-router-dom";
 import CV from "../assets/Tim Bailey CV.pdf";
+import { AboutProps } from "../../types/CustomTypes";
 
-function About() {
+function About({ setCurrentPage }: AboutProps) {
   const [timer, setTimer] = React.useState(false);
   const [scrollDirection, setScrollDirection] = React.useState("scrollDown");
   const [scrollPostition, setScrollPosition] = React.useState(0);
@@ -80,6 +81,10 @@ function About() {
     window.open(CV);
   }
 
+  function handleProjectHighlight() {
+    setCurrentPage("Projects");
+  }
+
   return (
     <>
       <div id="about">
@@ -110,8 +115,10 @@ function About() {
           </section>
           <section className="aboutText">
             <p className="aboutBody" id="aboutD">
-              <Link to="/projects">Check out my Projects</Link> or dowload my CV
-              below.
+              <Link to="/projects" onClick={handleProjectHighlight}>
+                Check out my Projects
+              </Link>{" "}
+              or dowload my CV below.
             </p>
           </section>
 

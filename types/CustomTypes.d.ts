@@ -30,3 +30,6 @@ export interface NavProps {
   setCurrentPage: React.Dispatch<React.SetStateAction<string>>;
   currentPage: string;
 }
+export interface AboutProps {
+  setCurrentPage: React.Dispatch<React.SetStateAction<string>>;
+}
