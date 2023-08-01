@@ -28,25 +28,25 @@ function About({ setCurrentPage }: AboutProps) {
     aboutB.style.opacity = `${scrollPostition / enterpoint}`;
   }
   if (aboutC) {
-    aboutC.style.opacity = `${scrollPostition / enterpoint - 1.8}`;
+    aboutC.style.opacity = `${scrollPostition / enterpoint - 0}`;
   }
   if (aboutD) {
-    aboutD.style.opacity = `${scrollPostition / enterpoint - 2.3}`;
+    aboutD.style.opacity = `${scrollPostition / enterpoint - 0}`;
   }
   if (cvButton) {
-    cvButton.style.opacity = `${scrollPostition / enterpoint - 2.8}`;
+    cvButton.style.opacity = `${scrollPostition / enterpoint - 0}`;
   }
 
   React.useEffect(() => {
     setTimeout(() => {
       setTimer(true);
-    }, 4000);
+    }, 2000);
   }, [timer]);
 
   React.useEffect(() => {
     const handleScroll = () => {
       setTimer(false);
-      const position = window.pageYOffset;
+      const position = window.scrollY;
       setScrollPosition(position);
     };
 

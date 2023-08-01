@@ -1,8 +1,5 @@
-#contactTitle {
-  text-align: center;
-}
 #contactForm {
-  margin: auto;
+  margin: 5% auto;
   width: 80%;
   max-width: 80%;
   display: flex;
@@ -15,6 +12,7 @@
   margin-bottom: 2%;
   padding: 2%;
   background-color: rgba(233, 233, 233, 0.8);
+  color: black;
 }
 .messageInput {
   width: 100%;
@@ -24,4 +22,17 @@
   padding: 5%;
   height: 20rem;
   background-color: rgba(233, 233, 233, 0.8);
+  color: black;
+}
+
+@media only screen and (min-width: 1200px) {
+  #contactForm {
+    width: 50%;
+    max-width: 80%;
+  }
+
+  #submitButton {
+    align-self: center;
+    width: 20%;
+  }
 }
