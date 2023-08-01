@@ -19,7 +19,10 @@ function App() {
       <Nav setCurrentPage={setCurrentPage} currentPage={currentPage} />
       <Routes>
         <Route path="/" element={<About />} />
-        <Route path="/about" element={<About />} />
+        <Route
+          path="/about"
+          element={<About setCurrentPage={setCurrentPage} />}
+        />
         <Route path="/projects" element={<Projects />} />
         <Route path="/projects/:project_id" element={<SingleProjectPage />} />
         <Route path="/skills" element={<Skills />} />
