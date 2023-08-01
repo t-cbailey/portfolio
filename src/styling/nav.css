@@ -19,6 +19,7 @@ nav {
 .navItem {
   list-style: none;
   font-size: 3.5vw;
+  padding-top: 0px;
 }
 
 .navIcons {
@@ -27,19 +28,14 @@ nav {
   justify-content: center;
   align-items: center;
   padding: 10px;
+  text-decoration: none;
 }
 
-@keyframes slideInFromRight {
+/* @keyframes slideInFromRight {
   0% {
     transform: translateX(100%);
-  }
-  70% {
-    transform: translateX(0);
-  }
-  85% {
-    transform: translateX(3%);
   }
   100% {
     transform: translateX(0);
   }
-}
+} */

@@ -26,3 +26,7 @@ export interface FirebaseConfig {
   messagingSenderId: string;
   appId: string;
 }
+export interface NavProps {
+  setCurrentPage: React.Dispatch<React.SetStateAction<string>>;
+  currentPage: string;
+}

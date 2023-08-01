@@ -93,9 +93,9 @@ function About() {
           {timer && <div className="icon-scroll"></div>}
           <section className="aboutText">
             <p className="aboutBody" id="aboutB">
-              Having recently completed a software development bootcamp at
+              Having recently completed a software development bootcamp at{" "}
               <a href="https://northcoders.com/" target="blank">
-                <span style={{ color: "red" }}> Northcoders</span>
+                Northcoders
               </a>{" "}
               I am looking for my first role in the tech industry.
             </p>
@@ -110,10 +110,8 @@ function About() {
           </section>
           <section className="aboutText">
             <p className="aboutBody" id="aboutD">
-              <Link to="/projects">
-                <span style={{ color: "red" }}>Check out my Projects, </span>
-              </Link>
-              or dowload my CV below.
+              <Link to="/projects">Check out my Projects</Link> or dowload my CV
+              below.
             </p>
           </section>
 
