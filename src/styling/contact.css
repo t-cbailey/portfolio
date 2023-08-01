@@ -14,6 +14,7 @@
   margin-top: 2%;
   margin-bottom: 2%;
   padding: 2%;
+  background-color: rgba(233, 233, 233, 0.8);
 }
 .messageInput {
   width: 100%;
@@ -22,8 +23,5 @@
   margin-bottom: 2%;
   padding: 5%;
   height: 20rem;
-}
-
-#submitButton {
-  margin-top: 2%;
+  background-color: rgba(233, 233, 233, 0.8);
 }

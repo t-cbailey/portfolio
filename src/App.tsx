@@ -8,12 +8,15 @@ import Certifications from "./components/Certifications";
 import About from "./components/About";
 import { Routes, Route } from "react-router-dom";
 import SingleProjectPage from "./components/SingleProjectPage";
+import React from "react";
 
 function App() {
+  const [currentPage, setCurrentPage] = React.useState<string>("");
+
   return (
     <>
       <Header />
-      <Nav />
+      <Nav setCurrentPage={setCurrentPage} currentPage={currentPage} />
       <Routes>
         <Route path="/" element={<About />} />
         <Route path="/about" element={<About />} />

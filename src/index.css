@@ -16,15 +16,16 @@
 
 a {
   font-weight: 500;
-  color: #212121;
-  text-decoration: inherit;
+  color: #000000;
+  text-decoration: underline;
+  font-weight: bold;
 }
 a:hover {
   color: black;
 }
 
 a:visited {
-  color: #626262;
+  color: #000000;
 }
 body {
   min-height: 100vh;
@@ -36,4 +37,12 @@ body {
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
+}
+
+button {
+  margin-top: 2%;
+  background-color: rgba(233, 233, 233, 0.8);
+  color: black;
+  border-radius: 5px;
+  font-weight: 600;
 }
