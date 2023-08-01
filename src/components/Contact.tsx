@@ -71,7 +71,6 @@ function Contact() {
   else
     return (
       <>
-        <h2 id="contactTitle">Contact</h2>
         <form id="contactForm">
           <input
             type="text"

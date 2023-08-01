@@ -24,8 +24,6 @@ function Certifications() {
   }
   return (
     <>
-      <h2 id="certtitle">Certifications</h2>
-
       <ul id="certlist">
         {certs.map((cert, i) => {
           return (
