@@ -18,7 +18,7 @@ function App() {
       <Header />
       <Nav setCurrentPage={setCurrentPage} currentPage={currentPage} />
       <Routes>
-        <Route path="/" element={<About />} />
+        <Route path="/" element={<About setCurrentPage={setCurrentPage} />} />
         <Route
           path="/about"
           element={<About setCurrentPage={setCurrentPage} />}
