@@ -13,6 +13,7 @@
 
 #aboutContainer {
   background-image: linear-gradient(white 0%, transparent 4%);
+  padding-bottom: 40vh;
 }
 
 .aboutText {
@@ -54,6 +55,7 @@
 }
 #aboutD {
   opacity: 0;
+  border-bottom: 40vh;
 }
 
 .icon-scroll,
@@ -109,11 +111,6 @@
   }
 }
 
-#cvbutton {
-  margin: 15% 30% 40vh 30%;
-  width: 40%;
-}
-
 @keyframes backgroundFade {
   0% {
     opacity: 0%;
@@ -124,24 +121,29 @@
 }
 
 @media only screen and (min-width: 600px) {
-  #about {
-    background-attachment: fixed;
-  }
 }
 
 @media only screen and (min-width: 768px) {
+  #about {
+    background-position: center -150px;
+    background-attachment: fixed;
+  }
+  #aboutB {
+    opacity: 0;
+    margin-top: 40vh;
+  }
+}
+
+@media only screen and (min-width: 992px) {
   #about {
     background-position: center;
     background-attachment: fixed;
   }
 }
 
-@media only screen and (min-width: 992px) {
-}
-
 @media only screen and (min-width: 1200px) {
   #about {
-    background-image: radial-gradient(ellipse, transparent 50%, white 70%),
+    background-image: radial-gradient(ellipse, transparent 30%, white 60%),
       url("../assets/IMG-20230711-WA0000.jpg");
     background-size: 60%;
   }
@@ -160,9 +162,5 @@
     );
 
     width: 20%;
-  }
-  #cvbutton {
-    margin: 15% 45% 40vh 45%;
-    width: 10%;
   }
 }

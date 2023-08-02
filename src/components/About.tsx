@@ -118,13 +118,9 @@ function About({ setCurrentPage }: AboutProps) {
               <Link to="/projects" onClick={handleProjectHighlight}>
                 Check out my Projects
               </Link>{" "}
-              or dowload my CV below.
+              or <a onClick={handleClick}>Download my CV</a>
             </p>
           </section>
-
-          <button id="cvbutton" type="submit" onClick={handleClick}>
-            Download CV
-          </button>
         </div>
       </div>
     </>

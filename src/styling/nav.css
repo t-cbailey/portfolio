@@ -13,7 +13,7 @@ nav {
   flex-direction: row;
   justify-content: space-around;
   padding: 0px;
-  animation: 1s ease-out 0s 1 slideInFromRight;
+  /* animation: 1s ease-out 0s 1 slideInFromRight; */
 }
 
 .navItem {
@@ -29,6 +29,9 @@ nav {
   align-items: center;
   padding: 10px;
   text-decoration: none;
+}
+.navIcons:hover {
+  text-shadow: 0px 0px 15px rgb(43, 43, 43);
 }
 
 /* @keyframes slideInFromRight {
