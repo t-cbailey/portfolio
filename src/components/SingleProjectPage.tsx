@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { getSingleProject, getFile } from "../../utils";
+import { getSingleProject, getFile } from "../../Utils/utils";
 import { useParams } from "react-router-dom";
 import { Project } from "../../types/CustomTypes";
 import "../styling/singleProjectPage.css";

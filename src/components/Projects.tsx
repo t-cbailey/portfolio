@@ -1,6 +1,6 @@
 import "../styling/projects.css";
 import React from "react";
-import { getFile, getProjects } from "../../utils";
+import { getFile, getProjects } from "../../Utils/utils";
 import { ProjectRes } from "../../types/CustomTypes";
 import { Link } from "react-router-dom";
 
@@ -47,6 +47,7 @@ function Projects() {
   } else
     return (
       <>
+        <h2>select a project for more info...</h2>
         <ul className="projectScroller">
           {projects.map((project: ProjectRes) => {
             return (

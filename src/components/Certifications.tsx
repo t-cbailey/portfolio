@@ -1,5 +1,5 @@
 import "../styling/certifications.css";
-import { getFileRefs, getFile } from "../../utils";
+import { getFileRefs, getFile } from "../../Utils/utils";
 import React from "react";
 
 function Certifications() {
