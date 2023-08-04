@@ -1,7 +1,7 @@
-import server from "./Api";
-import { Msg } from "./types/CustomTypes";
+import server from "../Api";
+import { Msg } from "../types/CustomTypes";
 import { ref, getDownloadURL, listAll } from "firebase/storage";
-import { storage } from "./Firebase";
+import { storage } from "../Firebase";
 
 export const getProjects = () => {
   return server
@@ -24,11 +24,11 @@ export const getSingleProject = (project_id: string | undefined) => {
 export const postMessage = (msg: Msg) => {
   return server
     .post("/contact", msg)
-    .then((result) => {
-      return result.data;
+    .then((res) => {
+      return res.data;
     })
     .catch((err) => {
-      return err;
+      return Promise.reject({ msg: err });
     });
 };
 

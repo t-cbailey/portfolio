@@ -8,7 +8,7 @@
   background-attachment: fixed;
   scroll-behavior: smooth;
   min-height: 100vh;
-  animation: backgroundFade 3s;
+  animation: backgroundFade 1s;
 }
 
 #aboutContainer {
