@@ -24,24 +24,24 @@
 }
 
 .html {
-  width: 80%;
+  width: 60%;
   background-image: linear-gradient(to right, white, #fabb8b);
   animation: expandWidth 4s;
 }
 .css {
-  width: 80%;
+  width: 60%;
   background-image: linear-gradient(to right, white, #fabb8b);
 }
 .js {
-  width: 100%;
+  width: 80%;
   background-image: linear-gradient(to right, white, #fabb8b);
 }
 .typescript {
-  width: 70%;
+  width: 60%;
   background-image: linear-gradient(to right, white, #fabb8b);
 }
 .sql {
-  width: 50%;
+  width: 40%;
   background-image: linear-gradient(to right, white, #fabb8b);
 }
 
@@ -50,7 +50,7 @@
   background-image: linear-gradient(to right, white, #fabb8b);
 }
 .react {
-  width: 90%;
+  width: 80%;
   background-image: linear-gradient(to right, white, #fabb8b);
 }
 

@@ -7,26 +7,26 @@ function Skills() {
       <div id="skillcontainer">
         <p>HTML</p>
         <div className="barcontainer">
-          <div className="skills html">80%</div>
+          <div className="skills html">60%</div>
         </div>
 
         <p>CSS</p>
         <div className="barcontainer">
-          <div className="skills css">80%</div>
+          <div className="skills css">60%</div>
         </div>
 
         <p>JavaScript</p>
         <div className="barcontainer">
-          <div className="skills js">100%</div>
+          <div className="skills js">80%</div>
         </div>
 
         <p>TypeScript</p>
         <div className="barcontainer">
-          <div className="skills typescript">70%</div>
+          <div className="skills typescript">60%</div>
         </div>
         <p>SQL</p>
         <div className="barcontainer">
-          <div className="skills sql">50%</div>
+          <div className="skills sql">40%</div>
         </div>
         <p>FireBase</p>
         <div className="barcontainer">
@@ -34,7 +34,7 @@ function Skills() {
         </div>
         <p>React</p>
         <div className="barcontainer">
-          <div className="skills react">90%</div>
+          <div className="skills react">80%</div>
         </div>
       </div>
       <h2 id="Stitle">Soft Skills</h2>
