@@ -47,7 +47,7 @@ function Projects() {
   } else
     return (
       <>
-        <h2>select a project for more info...</h2>
+        <h3 id="projectTitle">select a project...</h3>
         <ul className="projectScroller">
           {projects.map((project: ProjectRes) => {
             return (
