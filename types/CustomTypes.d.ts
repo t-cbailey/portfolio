@@ -1,6 +1,7 @@
 export interface Project {
   name: string;
-  imgURL: string;
+  imgURLmp4: string;
+  imgURLwebm: string;
   description: string;
   githubFE: string;
   githubBE: string;

@@ -13,10 +13,16 @@ function SingleProjectPage() {
   useEffect(() => {
     getSingleProject(project_id)
       .then((proj) => {
-        return getFile(proj.data.imgURL).then((url) => {
-          if (url) proj.data.imgURL = url;
-          return proj;
-        });
+        return Promise.all([
+          getFile(proj.data.imgURLmp4).then((url) => {
+            if (url) proj.data.imgURLmp4 = url;
+            return proj;
+          }),
+          getFile(proj.data.imgURLwebm).then((url) => {
+            if (url) proj.data.imgURLwebm = url;
+            return proj;
+          }),
+        ]);
       })
       .then((proj) => {
         setSingleProject(proj.data);
@@ -46,11 +52,10 @@ function SingleProjectPage() {
         <h2 id="SPtitle">{singleProject.name}</h2>
         <p id="SPdescription">{singleProject.description}</p>
         <div id="SPcontainer">
-          <img
-            src={singleProject.imgURL}
-            alt={singleProject.name}
-            id="SPDemoImg"
-          />
+          <video autoPlay loop muted playsInline>
+            <source src={singleProject.imgURLwebm} type="video/webm" />
+            <source src={singleProject.imgURLmp4} type="video/mp4" />
+          </video>
 
           <ul id="SPlist">
             <h3 id="SPlisttitle">Links</h3>
