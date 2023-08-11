@@ -14,15 +14,13 @@ function SingleProjectPage() {
     getSingleProject(project_id)
       .then((proj) => {
         return Promise.all([
-          getFile(proj.data.imgURLmp4).then((url) => {
-            if (url) proj.data.imgURLmp4 = url;
-            return proj;
-          }),
-          getFile(proj.data.imgURLwebm).then((url) => {
-            if (url) proj.data.imgURLwebm = url;
-            return proj;
-          }),
-        ]);
+          getFile(proj.data.imgURLmp4),
+          getFile(proj.data.imgURLwebm),
+        ]).then((url) => {
+          if (url[0]) proj.data.imgURLmp4 = url[0];
+          if (url[1]) proj.data.imgURLwebm = url[1];
+          return proj;
+        });
       })
       .then((proj) => {
         setSingleProject(proj.data);
