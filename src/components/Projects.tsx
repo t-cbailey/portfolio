@@ -24,8 +24,16 @@ function Projects() {
       .then((projArr) => {
         return Promise.all(
           projArr.map((proj: ProjectRes) => {
-            return getFile(proj.imgURL).then((url) => {
-              if (url) proj.imgURL = url;
+            return Promise.all([
+              getFile(proj.imgURLwebm),
+              getFile(proj.imgURLmp4),
+            ]).then((urls) => {
+              if (urls[0]) {
+                proj.imgURLwebm = urls[0];
+              }
+              if (urls[1]) {
+                proj.imgURLmp4 = urls[1];
+              }
               return proj;
             });
           })
@@ -53,7 +61,10 @@ function Projects() {
             return (
               <li key={project.id}>
                 <Link key={project.id} to={project.id}>
-                  <img src={project.imgURL} alt={project.name} />
+                  <video autoPlay loop muted playsInline key={project.id}>
+                    <source src={project.imgURLwebm} type="video/webm" />
+                    <source src={project.imgURLmp4} type="video/mp4" />
+                  </video>
                   <h3 className="projectName"> {project.name}</h3>
                 </Link>
               </li>
