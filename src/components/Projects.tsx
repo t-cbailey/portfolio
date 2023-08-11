@@ -28,7 +28,6 @@ function Projects() {
               getFile(proj.imgURLwebm),
               getFile(proj.imgURLmp4),
             ]).then((urls) => {
-              console.log(urls);
               if (urls[0]) {
                 proj.imgURLwebm = urls[0];
               }
