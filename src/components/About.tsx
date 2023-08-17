@@ -10,6 +10,8 @@ function About({ setCurrentPage }: AboutProps) {
   const [scrollDirection, setScrollDirection] = React.useState("scrollDown");
   const [scrollPostition, setScrollPosition] = React.useState(0);
 
+  console.log(scrollPostition);
+
   React.useEffect(() => {
     document.documentElement.style.setProperty(
       "--scroll-animation",
@@ -20,22 +22,20 @@ function About({ setCurrentPage }: AboutProps) {
   }, [scrollDirection]);
 
   const windowHeight = window.innerHeight;
+  console.log(windowHeight);
   const aboutB = document.getElementById("aboutB");
   const aboutC = document.getElementById("aboutC");
   const aboutD = document.getElementById("aboutD");
-  const cvButton = document.getElementById("cvbutton");
-  const enterpoint = windowHeight * 0.2;
+
   if (aboutB) {
-    aboutB.style.opacity = `${scrollPostition / enterpoint}`;
+    console.log(aboutB.style.opacity);
+    aboutB.style.opacity = `${(scrollPostition - windowHeight / 10) / 100}`;
   }
   if (aboutC) {
-    aboutC.style.opacity = `${scrollPostition / enterpoint - 0}`;
+    aboutC.style.opacity = `${(scrollPostition - windowHeight / 3) / 100}`;
   }
   if (aboutD) {
-    aboutD.style.opacity = `${scrollPostition / enterpoint - 0}`;
-  }
-  if (cvButton) {
-    cvButton.style.opacity = `${scrollPostition / enterpoint - 0}`;
+    aboutD.style.opacity = `${(scrollPostition - windowHeight / 1.5) / 100}`;
   }
 
   React.useEffect(() => {
