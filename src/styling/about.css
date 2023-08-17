@@ -6,11 +6,13 @@
 
 #backgroundImg {
   position: fixed;
-  height: 150vh;
+  max-height: 150vh;
+  width: auto;
   top: -30%;
   bottom: auto;
   left: auto;
   right: -50%;
+  object-fit: contain;
   z-index: -999;
 }
 
