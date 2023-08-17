@@ -25,7 +25,6 @@ function About({ setCurrentPage }: AboutProps) {
   const aboutD = document.getElementById("aboutD");
 
   if (aboutB) {
-    console.log(aboutB.style.opacity);
     aboutB.style.opacity = `${(scrollPostition - windowHeight / 10) / 100}`;
   }
   if (aboutC) {

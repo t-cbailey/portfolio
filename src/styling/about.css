@@ -160,11 +160,12 @@
 
   #aboutContainer {
     margin-right: 0px;
+    padding-bottom: 60vh;
   }
   #backgroundImg {
     position: fixed;
     top: -25%;
-    left: 30%;
+    left: 25%;
     right: 0;
     width: 60%;
     z-index: -999;
@@ -186,5 +187,29 @@
       rgba(233, 233, 233, 0.5)
     );
     width: 20%;
+  }
+}
+@media only screen and (min-width: 3840px) {
+  .aboutText {
+    font-size: 2rem;
+  }
+  .aboutBody {
+    font-size: 2rem;
+  }
+  #aboutB {
+    margin-top: 40vh;
+  }
+}
+
+@media (orientation: landscape) {
+  @media only screen and (max-width: 1200px) {
+    #backgroundImg {
+      position: fixed;
+      top: 0%;
+      left: 50%;
+      right: 0%;
+      max-width: 60%;
+      z-index: -999;
+    }
   }
 }
