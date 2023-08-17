@@ -13,16 +13,18 @@
   padding: 2%;
   background-color: rgba(233, 233, 233, 0.8);
   color: black;
+  border-radius: 5px;
 }
 .messageInput {
   width: 100%;
   resize: vertical;
   margin-top: 2%;
   margin-bottom: 2%;
-  padding: 5%;
+  padding: 2%;
   height: 20rem;
   background-color: rgba(233, 233, 233, 0.8);
   color: black;
+  border-radius: 5px;
 }
 
 @media only screen and (min-width: 1200px) {

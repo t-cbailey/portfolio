@@ -1,19 +1,23 @@
 #about {
-  background-image: linear-gradient(transparent 80%, white),
-    url("../assets/IMG-20230711-WA0000.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-color: rgb(255, 255, 255);
-  background-position: center -100px;
-  background-attachment: fixed;
+  background-image: linear-gradient(transparent 80%, white);
   scroll-behavior: smooth;
   min-height: 100vh;
-  animation: backgroundFade 1s;
+}
+
+#backgroundImg {
+  position: fixed;
+  height: 150vh;
+  top: -30%;
+  bottom: auto;
+  left: auto;
+  right: -50%;
+  z-index: -999;
 }
 
 #aboutContainer {
   background-image: linear-gradient(white 0%, transparent 4%);
   padding-bottom: 40vh;
+  animation: backgroundFade 1s;
 }
 
 .aboutText {
@@ -26,7 +30,7 @@
     rgba(233, 233, 233, 0.8),
     rgba(233, 233, 233, 0.5)
   );
-  border-radius: 20px;
+  border-radius: 20px 0 20px 20px;
   padding: 2px 10px 2px 10px;
   text-shadow: 0px 0px 3px white;
   width: 40%;
@@ -38,7 +42,7 @@
     rgba(233, 233, 233, 0.8),
     rgba(233, 233, 233, 0.5)
   );
-  border-radius: 20px;
+  border-radius: 20px 0 20px 20px;
   padding: 2px 10px 2px 10px;
   text-shadow: 0px 0px 3px white;
   font-size: 1rem;
@@ -47,10 +51,11 @@
   opacity: 100%;
 }
 
-#aboutC {
-  opacity: 0;
-}
 #aboutB {
+  opacity: 0;
+  margin-top: 10vh;
+}
+#aboutC {
   opacity: 0;
 }
 #aboutD {
@@ -120,45 +125,91 @@
   }
 }
 
-@media only screen and (min-width: 600px) {
-}
-
 @media only screen and (min-width: 768px) {
-  #about {
-    background-position: center -150px;
+  #backgroundImg {
+    position: fixed;
+    height: 120vh;
+    top: -15%;
+    bottom: auto;
+    left: auto;
+    right: -10%;
+    z-index: -1;
   }
   #aboutB {
     opacity: 0;
-    margin-top: 40vh;
+    margin-top: 20vh;
   }
 }
 
 @media only screen and (min-width: 992px) {
-  #about {
-    background-position: center;
+  #backgroundImg {
+    position: fixed;
+    height: auto;
+    top: -35%;
+    bottom: auto;
+    left: auto;
+    right: -20%;
+    z-index: -1;
   }
 }
 
 @media only screen and (min-width: 1200px) {
   #about {
-    background-image: radial-gradient(ellipse, transparent 30%, white 60%),
-      url("../assets/IMG-20230711-WA0000.jpg");
-    background-size: 60%;
+    width: 100%;
   }
+
+  #aboutContainer {
+    margin-right: 0px;
+    padding-bottom: 60vh;
+  }
+  #backgroundImg {
+    position: fixed;
+    top: -25%;
+    left: 25%;
+    right: 0;
+    width: 60%;
+    z-index: -999;
+  }
+
   .aboutText {
-    padding: 5% 0 0% 25%;
+    padding: 5% 0 0% 30%;
     color: black;
+    font-size: 1.2rem;
   }
 
   #aboutTitle {
     width: 20%;
   }
   .aboutBody {
+    font-size: 1.2rem;
     background-image: linear-gradient(
       rgba(233, 233, 233, 0.8),
       rgba(233, 233, 233, 0.5)
     );
-
     width: 20%;
+  }
+}
+@media only screen and (min-width: 3840px) {
+  .aboutText {
+    font-size: 2rem;
+  }
+  .aboutBody {
+    font-size: 2rem;
+  }
+  #aboutB {
+    margin-top: 40vh;
+  }
+}
+
+@media (orientation: landscape) {
+  @media only screen and (max-width: 1200px) {
+    #backgroundImg {
+      position: fixed;
+      top: 0%;
+      left: 50%;
+      right: 0%;
+      max-width: 60%;
+      z-index: -999;
+    }
   }
 }

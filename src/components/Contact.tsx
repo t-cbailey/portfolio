@@ -55,14 +55,14 @@ function Contact() {
         <form id="contactForm">
           <input
             type="text"
-            placeholder="Your Name"
+            placeholder="Name"
             {...name}
             className="inputField"
           />
           <input
             className="inputField"
             type="text"
-            placeholder="Your Email"
+            placeholder="Email"
             {...email}
           />
           <input

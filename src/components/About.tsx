@@ -3,7 +3,8 @@ import "../styling/about.css";
 import { Link } from "react-router-dom";
 import CV from "../assets/Tim Bailey CV.pdf";
 import { AboutProps } from "../../types/CustomTypes";
-
+import backgroundJpeg from "../assets/backgroundImg.jpg";
+import backgroundWebp from "../assets/backgroundImg.webp";
 function About({ setCurrentPage }: AboutProps) {
   const [timer, setTimer] = React.useState(false);
   const [scrollDirection, setScrollDirection] = React.useState("scrollDown");
@@ -22,19 +23,15 @@ function About({ setCurrentPage }: AboutProps) {
   const aboutB = document.getElementById("aboutB");
   const aboutC = document.getElementById("aboutC");
   const aboutD = document.getElementById("aboutD");
-  const cvButton = document.getElementById("cvbutton");
-  const enterpoint = windowHeight * 0.2;
+
   if (aboutB) {
-    aboutB.style.opacity = `${scrollPostition / enterpoint}`;
+    aboutB.style.opacity = `${(scrollPostition - windowHeight / 10) / 100}`;
   }
   if (aboutC) {
-    aboutC.style.opacity = `${scrollPostition / enterpoint - 0}`;
+    aboutC.style.opacity = `${(scrollPostition - windowHeight / 3) / 100}`;
   }
   if (aboutD) {
-    aboutD.style.opacity = `${scrollPostition / enterpoint - 0}`;
-  }
-  if (cvButton) {
-    cvButton.style.opacity = `${scrollPostition / enterpoint - 0}`;
+    aboutD.style.opacity = `${(scrollPostition - windowHeight / 1.5) / 100}`;
   }
 
   React.useEffect(() => {
@@ -88,6 +85,11 @@ function About({ setCurrentPage }: AboutProps) {
   return (
     <>
       <div id="about">
+        <picture>
+          <source srcSet={backgroundWebp} type="image/webp" />
+          <source srcSet={backgroundJpeg} type="image/jpeg" />
+          <img src={backgroundJpeg} alt="Me on a hill" id="backgroundImg" />
+        </picture>
         <div id="aboutContainer">
           <section className="aboutText">
             <h2 id="aboutTitle">Hello, I'm Tim</h2>
