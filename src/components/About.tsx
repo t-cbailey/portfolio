@@ -10,8 +10,6 @@ function About({ setCurrentPage }: AboutProps) {
   const [scrollDirection, setScrollDirection] = React.useState("scrollDown");
   const [scrollPostition, setScrollPosition] = React.useState(0);
 
-  console.log(scrollPostition);
-
   React.useEffect(() => {
     document.documentElement.style.setProperty(
       "--scroll-animation",
@@ -22,7 +20,6 @@ function About({ setCurrentPage }: AboutProps) {
   }, [scrollDirection]);
 
   const windowHeight = window.innerHeight;
-  console.log(windowHeight);
   const aboutB = document.getElementById("aboutB");
   const aboutC = document.getElementById("aboutC");
   const aboutD = document.getElementById("aboutD");
