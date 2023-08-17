@@ -11,6 +11,7 @@
   padding: 0;
   border-top: solid #626262 2px;
   border-bottom: solid #626262 2px;
+  animation: backgroundFade 2s;
 }
 
 .projectScroller li {
@@ -35,6 +36,14 @@
   overflow: auto;
 
   text-shadow: rgb(181, 181, 181) 1px 1px 3px;
+}
+@keyframes backgroundFade {
+  0% {
+    opacity: 0%;
+  }
+  100% {
+    opacity: 100%;
+  }
 }
 
 @media only screen and (min-width: 1200px) {

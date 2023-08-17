@@ -2,9 +2,11 @@
   background-image: linear-gradient(transparent 80%, white);
   scroll-behavior: smooth;
   min-height: 100vh;
+  overflow: hidden;
 }
 
 #backgroundImg {
+  animation: backgroundFade 2s;
   position: fixed;
   max-height: 150vh;
   width: auto;
@@ -19,7 +21,7 @@
 #aboutContainer {
   background-image: linear-gradient(white 0%, transparent 4%);
   padding-bottom: 40vh;
-  animation: backgroundFade 1s;
+  animation: backgroundFade 2s;
 }
 
 .aboutText {

@@ -13,6 +13,16 @@
 #certlist {
   padding: 0;
   margin: 0;
+  animation: backgroundFade 2s;
+}
+
+@keyframes backgroundFade {
+  0% {
+    opacity: 0%;
+  }
+  100% {
+    opacity: 100%;
+  }
 }
 
 @media only screen and (min-width: 1200px) {

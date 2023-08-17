@@ -5,6 +5,7 @@
 #skillcontainer {
   width: 80%;
   margin: 10%;
+  animation: backgroundFade 2s;
 }
 
 .barcontainer {
@@ -88,7 +89,14 @@
   width: 90%;
   background-image: linear-gradient(to right, white, #fabb8b);
 }
-
+@keyframes backgroundFade {
+  0% {
+    opacity: 0%;
+  }
+  100% {
+    opacity: 100%;
+  }
+}
 @media only screen and (min-width: 1200px) {
   #skillcontainer {
     width: 40%;
