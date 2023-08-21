@@ -74,10 +74,6 @@ function About({ setCurrentPage }: AboutProps) {
     };
   }, []);
 
-  function handleClick() {
-    window.open(CV);
-  }
-
   function handleProjectHighlight() {
     setCurrentPage("Projects");
   }
@@ -120,7 +116,10 @@ function About({ setCurrentPage }: AboutProps) {
               <Link to="/projects" onClick={handleProjectHighlight}>
                 Check out my Projects
               </Link>{" "}
-              or <a onClick={handleClick}>Download my CV</a>
+              or{" "}
+              <a href={CV} target="blank">
+                Download my CV
+              </a>
             </p>
           </section>
         </div>
