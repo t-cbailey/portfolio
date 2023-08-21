@@ -8,8 +8,8 @@
 #backgroundImg {
   animation: backgroundFade 2s;
   position: fixed;
-  max-height: 150vh;
-  width: auto;
+  height: 150vh;
+  width: 100vh;
   top: -30%;
   bottom: auto;
   left: auto;

@@ -20,13 +20,7 @@ a {
   text-decoration: underline;
   font-weight: bold;
 }
-a:hover {
-  color: rgb(0, 0, 0);
-}
 
-a:visited {
-  color: #000000;
-}
 body {
   min-height: 100vh;
   margin: 0;
