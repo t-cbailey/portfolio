@@ -1,9 +1,21 @@
 header {
-  height: 10%;
+  height: 20%;
   background-image: linear-gradient(#005392, #2288d6);
   font-size: 1em;
   color: white;
   width: 100%;
   padding: 10px;
   margin-bottom: -1px;
+}
+
+.socialsIcon {
+  height: 20px;
+  position: absolute;
+}
+
+#linkedIn {
+  right: 20px;
+}
+#gitHub {
+  right: 50px;
 }
