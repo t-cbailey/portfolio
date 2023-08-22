@@ -1,5 +1,5 @@
 #about {
-  background-image: linear-gradient(transparent 80%, white);
+  /* background-image: linear-gradient(transparent 80%, white); */
   scroll-behavior: smooth;
   min-height: 100vh;
   overflow: hidden;
@@ -168,15 +168,15 @@
   }
   #backgroundImg {
     position: fixed;
-    top: -25%;
+    top: -35%;
     left: 25%;
     right: 0;
-    width: 60%;
+    width: 65%;
     z-index: -999;
   }
 
   .aboutText {
-    padding: 5% 0 0% 30%;
+    padding: 5% 0 0% 25%;
     color: black;
     font-size: 1.2rem;
   }
