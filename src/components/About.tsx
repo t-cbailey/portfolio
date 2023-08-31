@@ -31,7 +31,7 @@ function About({ setCurrentPage }: AboutProps) {
     aboutC.style.opacity = `${(scrollPostition - windowHeight / 3) / 100}`;
   }
   if (aboutD) {
-    aboutD.style.opacity = `${(scrollPostition - windowHeight / 1.5) / 100}`;
+    aboutD.style.opacity = `${(scrollPostition - windowHeight / 2) / 100}`;
   }
 
   React.useEffect(() => {
