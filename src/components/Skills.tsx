@@ -1,75 +1,43 @@
 import "../styling/skills.css";
+import React, { useState } from "react";
+import css3 from "../assets/icons/css3.svg";
+import express from "../assets/icons/express.svg";
+import firebase from "../assets/icons/firebase.svg";
+import html5 from "../assets/icons/html5.svg";
+import javascript from "../assets/icons/javascript.svg";
+import jest from "../assets/icons/jest.svg";
+import materialui from "../assets/icons/materialui.svg";
+import nodejs from "../assets/icons/nodejs.svg";
+import postgresql from "../assets/icons/postgresql.svg";
+import react from "../assets/icons/react.svg";
+import typescript from "../assets/icons/typescript.svg";
 
 function Skills() {
+  const [iconArr, setIconArr] = useState<string[]>([]);
+
+  React.useEffect(() => {
+    const icons = [
+      css3,
+      express,
+      firebase,
+      html5,
+      javascript,
+      jest,
+      materialui,
+      nodejs,
+      postgresql,
+      react,
+      typescript,
+    ];
+    setIconArr(icons);
+  }, []);
+
   return (
     <>
-      <h2 id="Stitle">Technical Skills</h2>
-      <div id="skillcontainer">
-        <p>HTML</p>
-        <div className="barcontainer">
-          <div className="skills html">60%</div>
-        </div>
-
-        <p>CSS</p>
-        <div className="barcontainer">
-          <div className="skills css">60%</div>
-        </div>
-
-        <p>JavaScript</p>
-        <div className="barcontainer">
-          <div className="skills js">80%</div>
-        </div>
-
-        <p>TypeScript</p>
-        <div className="barcontainer">
-          <div className="skills typescript">60%</div>
-        </div>
-        <p>SQL</p>
-        <div className="barcontainer">
-          <div className="skills sql">40%</div>
-        </div>
-        <p>FireBase</p>
-        <div className="barcontainer">
-          <div className="skills firebase">40%</div>
-        </div>
-        <p>React</p>
-        <div className="barcontainer">
-          <div className="skills react">80%</div>
-        </div>
-      </div>
-      <h2 id="Stitle">Soft Skills</h2>
-      <div id="skillcontainer">
-        <p>Leadership</p>
-        <div className="barcontainer">
-          <div className="skills leadership">80%</div>
-        </div>
-
-        <p>Time Management</p>
-        <div className="barcontainer">
-          <div className="skills timeManagment">80%</div>
-        </div>
-
-        <p>Creativity</p>
-        <div className="barcontainer">
-          <div className="skills creativity">90%</div>
-        </div>
-
-        <p>Teamwork</p>
-        <div className="barcontainer">
-          <div className="skills teamwork">70%</div>
-        </div>
-        <p>Problem Solving</p>
-        <div className="barcontainer">
-          <div className="skills problemSolving">70%</div>
-        </div>
-        <p>Communication</p>
-        <div className="barcontainer">
-          <div className="skills communication">80%</div>
-        </div>
-        <p>Emotional Intelligence</p>
-        <div className="barcontainer">
-          <div className="skills emotionalIntelligence">90%</div>
-        </div>
+      <div id="iconContainer">
+        {iconArr.map((icon) => {
+          return <img className="techIcon" key={icon} src={icon} alt={icon} />;
+        })}
       </div>
     </>
   );
