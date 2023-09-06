@@ -63,17 +63,17 @@ function SingleProjectPage({ setCurrentPage }: SingleProjectPageProps) {
             <h3 id="SPlisttitle">Links</h3>
             <li className="SPlink">
               <a href={singleProject.githubFE} target="_blank">
-                Github Frontend
+                GitHub Frontend
               </a>
             </li>
             <li className="SPlink">
               <a href={singleProject.githubBE} target="_blank">
-                Github Backend
+                GitHub Backend
               </a>
             </li>
             <li className="SPlink">
               <a href={singleProject.livelink} target="_blank">
-                Live Site Link
+                Live Site
               </a>
             </li>
           </ul>
