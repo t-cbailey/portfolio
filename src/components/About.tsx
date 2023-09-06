@@ -11,6 +11,10 @@ function About({ setCurrentPage }: AboutProps) {
   const [scrollPostition, setScrollPosition] = React.useState(0);
 
   React.useEffect(() => {
+    setCurrentPage("About");
+  });
+
+  React.useEffect(() => {
     document.documentElement.style.setProperty(
       "--scroll-animation",
       scrollDirection === "scrollDown"
@@ -74,10 +78,6 @@ function About({ setCurrentPage }: AboutProps) {
     };
   }, []);
 
-  function handleProjectHighlight() {
-    setCurrentPage("Projects");
-  }
-
   return (
     <>
       <div id="about">
@@ -113,10 +113,7 @@ function About({ setCurrentPage }: AboutProps) {
           </section>
           <section className="aboutText">
             <p className="aboutBody" id="aboutD">
-              <Link to="/projects" onClick={handleProjectHighlight}>
-                Check out my Projects
-              </Link>{" "}
-              or{" "}
+              <Link to="/projects">Check out my Projects</Link> or{" "}
               <a href={CV} target="blank">
                 Download my CV
               </a>

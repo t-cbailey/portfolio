@@ -11,9 +11,14 @@ import nodejs from "../assets/icons/nodejs.svg";
 import postgresql from "../assets/icons/postgresql.svg";
 import react from "../assets/icons/react.svg";
 import typescript from "../assets/icons/typescript.svg";
+import { SkillsProps } from "../../types/CustomTypes";
 
-function Skills() {
+function Skills({ setCurrentPage }: SkillsProps) {
   const [iconArr, setIconArr] = useState<string[]>([]);
+
+  React.useEffect(() => {
+    setCurrentPage("Skills");
+  });
 
   React.useEffect(() => {
     const icons = [

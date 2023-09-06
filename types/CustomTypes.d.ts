@@ -34,3 +34,20 @@ export interface NavProps {
 export interface AboutProps {
   setCurrentPage: React.Dispatch<React.SetStateAction<string>>;
 }
+
+export interface ProjectProps {
+  setCurrentPage: React.Dispatch<React.SetStateAction<string>>;
+}
+export interface SingleProjectPageProps {
+  setCurrentPage: React.Dispatch<React.SetStateAction<string>>;
+}
+export interface CertificationsProps {
+  setCurrentPage: React.Dispatch<React.SetStateAction<string>>;
+}
+export interface ContactProps {
+  setCurrentPage: React.Dispatch<React.SetStateAction<string>>;
+}
+
+export interface SkillsProps {
+  setCurrentPage: React.Dispatch<React.SetStateAction<string>>;
+}

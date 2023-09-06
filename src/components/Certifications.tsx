@@ -1,10 +1,15 @@
 import "../styling/certifications.css";
 import { getFileRefs, getFile } from "../../Utils/utils";
 import React from "react";
+import { CertificationsProps } from "../../types/CustomTypes";
 
-function Certifications() {
+function Certifications({ setCurrentPage }: CertificationsProps) {
   const [certs, setCerts] = React.useState<string[]>([]);
   const [loading, setLoading] = React.useState(false);
+
+  React.useEffect(() => {
+    setCurrentPage("Certifications");
+  });
 
   React.useEffect(() => {
     setLoading(true);

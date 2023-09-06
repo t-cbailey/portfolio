@@ -1,13 +1,17 @@
 import "../styling/projects.css";
 import React from "react";
 import { getFile, getProjects } from "../../Utils/utils";
-import { ProjectRes } from "../../types/CustomTypes";
+import { ProjectProps, ProjectRes } from "../../types/CustomTypes";
 import { Link } from "react-router-dom";
 
-function Projects() {
+function Projects({ setCurrentPage }: ProjectProps) {
   const [projects, setProjects] = React.useState<ProjectRes[]>([]);
   const [loading, setLoading] = React.useState(true);
   const [loadErr, setLoadErr] = React.useState(false);
+
+  React.useEffect(() => {
+    setCurrentPage("Projects");
+  });
 
   React.useEffect(() => {
     setLoading(true);

@@ -23,11 +23,26 @@ function App() {
           path="/about"
           element={<About setCurrentPage={setCurrentPage} />}
         />
-        <Route path="/projects" element={<Projects />} />
-        <Route path="/projects/:project_id" element={<SingleProjectPage />} />
-        <Route path="/skills" element={<Skills />} />
-        <Route path="/certifications" element={<Certifications />} />
-        <Route path="/contact" element={<Contact />} />
+        <Route
+          path="/projects"
+          element={<Projects setCurrentPage={setCurrentPage} />}
+        />
+        <Route
+          path="/projects/:project_id"
+          element={<SingleProjectPage setCurrentPage={setCurrentPage} />}
+        />
+        <Route
+          path="/skills"
+          element={<Skills setCurrentPage={setCurrentPage} />}
+        />
+        <Route
+          path="/certifications"
+          element={<Certifications setCurrentPage={setCurrentPage} />}
+        />
+        <Route
+          path="/contact"
+          element={<Contact setCurrentPage={setCurrentPage} />}
+        />
       </Routes>
     </>
   );

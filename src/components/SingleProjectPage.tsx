@@ -1,14 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { getSingleProject, getFile } from "../../Utils/utils";
 import { useParams } from "react-router-dom";
-import { Project } from "../../types/CustomTypes";
+import { Project, SingleProjectPageProps } from "../../types/CustomTypes";
 import "../styling/singleProjectPage.css";
 
-function SingleProjectPage() {
+function SingleProjectPage({ setCurrentPage }: SingleProjectPageProps) {
   const { project_id } = useParams();
   const [singleProject, setSingleProject] = useState<Project>();
   const [isLoading, setIsLoading] = useState(true);
   const [stack, setStack] = React.useState<string[]>([]);
+
+  React.useEffect(() => {
+    setCurrentPage("Projects");
+  });
 
   useEffect(() => {
     getSingleProject(project_id)
