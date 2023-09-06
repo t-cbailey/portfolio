@@ -1,5 +1,13 @@
 #SPtitle {
   text-align: center;
+  margin-top: 0px;
+}
+
+#backButton {
+  background-color: white;
+  border: none;
+  width: 10vw;
+  margin: 0 0 0 5%;
 }
 
 #SPdescription {
@@ -54,12 +62,24 @@ video {
   border-radius: 5px;
 }
 
+@media only screen and (min-width: 768px) {
+  #backButton {
+    width: 5vw;
+    margin: 0 0 0 10%;
+  }
+}
+
 @media only screen and (min-width: 1200px) {
   #SPdescription {
     width: 60%;
     margin: 0% 20% 2%;
     font-size: large;
   }
+  #backButton {
+    width: 2vw;
+    margin: 0 0 0 10%;
+  }
+
   #SPcontainer {
     width: 60%;
     margin-left: 20%;

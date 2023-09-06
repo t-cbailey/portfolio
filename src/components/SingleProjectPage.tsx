@@ -1,14 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { getSingleProject, getFile } from "../../Utils/utils";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { Project, SingleProjectPageProps } from "../../types/CustomTypes";
 import "../styling/singleProjectPage.css";
+import backIcon from "../assets/backIcon.svg";
 
 function SingleProjectPage({ setCurrentPage }: SingleProjectPageProps) {
   const { project_id } = useParams();
   const [singleProject, setSingleProject] = useState<Project>();
   const [isLoading, setIsLoading] = useState(true);
   const [stack, setStack] = React.useState<string[]>([]);
+
+  const navigate = useNavigate();
 
   React.useEffect(() => {
     setCurrentPage("Projects");
@@ -35,6 +38,10 @@ function SingleProjectPage({ setCurrentPage }: SingleProjectPageProps) {
       });
   }, []);
 
+  const handleBackToProjects = () => {
+    navigate("/projects");
+  };
+
   useEffect(() => {
     if (singleProject) {
       const stackArr = singleProject.stack.split(",");
@@ -51,6 +58,9 @@ function SingleProjectPage({ setCurrentPage }: SingleProjectPageProps) {
   } else
     return (
       <>
+        <button onClick={handleBackToProjects} id="backButton">
+          <img src={backIcon} alt="backIcon" />
+        </button>
         <h2 id="SPtitle">{singleProject.name}</h2>
         <p id="SPdescription">{singleProject.description}</p>
         <div id="SPcontainer">
