@@ -12,6 +12,7 @@ video {
   border-radius: 20px;
   border: 3px solid rgb(52, 52, 52);
   margin: 10% 5% 10% 10%;
+  align-self: center;
 }
 
 .SPlink {
@@ -21,6 +22,7 @@ video {
 #SPlist {
   margin: 10% 10% 10% 5%;
   padding: 2%;
+  align-self: center;
 }
 
 #SPlisttitle {
@@ -41,6 +43,7 @@ video {
   max-width: 100%;
   padding: 5%;
   flex-wrap: wrap;
+  padding: 0 10% 0 10%;
 }
 
 .SPstackitem {
@@ -54,7 +57,8 @@ video {
 @media only screen and (min-width: 1200px) {
   #SPdescription {
     width: 60%;
-    margin: 0% 20% 5%;
+    margin: 0% 20% 2%;
+    font-size: large;
   }
   #SPcontainer {
     width: 60%;
