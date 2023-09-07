@@ -1,6 +1,7 @@
 import React from "react";
 import "../styling/addProject.css";
 import { postNewProject } from "../../Utils/utils";
+import { useNavigate } from "react-router";
 
 function AddProject() {
   const [input, setInput] = React.useState({
@@ -13,6 +14,9 @@ function AddProject() {
     livelink: "",
     stack: "",
   });
+  const [response, setResponse] = React.useState("");
+
+  const navigate = useNavigate();
 
   const handleInputChange = (
     e:
@@ -52,90 +56,102 @@ function AddProject() {
 
   const handleSubmit = () => {
     return postNewProject(input).then((res) => {
-      console.log(res);
+      setResponse(res);
     });
   };
 
-  return (
-    <>
-      <h2 id="addProjTitle">Add project</h2>
-      <form id="inputForm">
-        <label className="inputLabel" htmlFor="name">
-          name
-        </label>
-        <input
-          className="inputField"
-          onChange={handleInputChange}
-          name="name"
-          type="text"
-        />
-        <label className="inputLabel" htmlFor="imgURLwebm">
-          webm ImgUrl
-        </label>
-        <input
-          className="inputField"
-          onChange={handleInputChange}
-          name="imgURLwebm"
-          type="text"
-        />
-        <label className="inputLabel" htmlFor="imgURLmp4">
-          mp4 ImgUrl
-        </label>
-        <input
-          className="inputField"
-          onChange={handleInputChange}
-          name="imgURLmp4"
-          type="text"
-        />
-        <label className="inputLabel" htmlFor="description">
-          description
-        </label>
-        <textarea
-          className="inputField"
-          onChange={handleInputChange}
-          name="description"
-        />
-        <label className="inputLabel" htmlFor="githubBE">
-          GitHubFE link
-        </label>
-        <input
-          className="inputField"
-          onChange={handleInputChange}
-          name="githubBE"
-          type="text"
-        />
-        <label className="inputLabel" htmlFor="githubFE">
-          GitHub BE link
-        </label>
-        <input
-          className="inputField"
-          onChange={handleInputChange}
-          name="githubFE"
-          type="text"
-        />
-        <label className="inputLabel" htmlFor="livelink">
-          Live Link
-        </label>
-        <input
-          className="inputField"
-          onChange={handleInputChange}
-          name="livelink"
-          type="text"
-        />
-        <label className="inputLabel" htmlFor="stack">
-          stack
-        </label>
-        <input
-          className="inputField"
-          onChange={handleInputChange}
-          name="stack"
-          type="text"
-        />
-      </form>
-      <button onClick={handleSubmit} type="submit">
-        Submit
-      </button>
-    </>
-  );
+  const handleBack = () => {
+    setResponse("");
+  };
+
+  if (response !== "") {
+    return (
+      <>
+        <h2>{response}</h2>
+        <button onClick={handleBack}>back</button>
+      </>
+    );
+  } else
+    return (
+      <>
+        <h2 id="addProjTitle">Add project</h2>
+        <form id="inputForm">
+          <label className="inputLabel" htmlFor="name">
+            name
+          </label>
+          <input
+            className="inputField"
+            onChange={handleInputChange}
+            name="name"
+            type="text"
+          />
+          <label className="inputLabel" htmlFor="imgURLwebm">
+            webm ImgUrl
+          </label>
+          <input
+            className="inputField"
+            onChange={handleInputChange}
+            name="imgURLwebm"
+            type="text"
+          />
+          <label className="inputLabel" htmlFor="imgURLmp4">
+            mp4 ImgUrl
+          </label>
+          <input
+            className="inputField"
+            onChange={handleInputChange}
+            name="imgURLmp4"
+            type="text"
+          />
+          <label className="inputLabel" htmlFor="description">
+            description
+          </label>
+          <textarea
+            className="inputField"
+            onChange={handleInputChange}
+            name="description"
+          />
+          <label className="inputLabel" htmlFor="githubBE">
+            GitHubFE link
+          </label>
+          <input
+            className="inputField"
+            onChange={handleInputChange}
+            name="githubBE"
+            type="text"
+          />
+          <label className="inputLabel" htmlFor="githubFE">
+            GitHub BE link
+          </label>
+          <input
+            className="inputField"
+            onChange={handleInputChange}
+            name="githubFE"
+            type="text"
+          />
+          <label className="inputLabel" htmlFor="livelink">
+            Live Link
+          </label>
+          <input
+            className="inputField"
+            onChange={handleInputChange}
+            name="livelink"
+            type="text"
+          />
+          <label className="inputLabel" htmlFor="stack">
+            stack
+          </label>
+          <input
+            className="inputField"
+            onChange={handleInputChange}
+            name="stack"
+            type="text"
+          />
+        </form>
+        <button onClick={handleSubmit} type="submit">
+          Submit
+        </button>
+      </>
+    );
 }
 export default AddProject;

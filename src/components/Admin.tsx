@@ -2,6 +2,7 @@ import React from "react";
 import { firebaseSignIn } from "../../Firebase";
 import { getUserById } from "../../Utils/utils";
 import AddProject from "./AddProject";
+import "../styling/admin.css";
 
 function Admin() {
   const [input, setInput] = React.useState({
@@ -9,6 +10,7 @@ function Admin() {
     passwordInput: "",
   });
   const [loggedInUser, setLoggedInUser] = React.useState("");
+  const [error, setError] = React.useState("");
 
   const handleInput = (event: React.ChangeEvent<HTMLInputElement>) => {
     event.preventDefault();
@@ -36,7 +38,7 @@ function Admin() {
             setLoggedInUser(user.email);
           });
         } else {
-          console.log("Unfortunately, we do not recognize those details ☹️");
+          setError("incorrect credentials");
         }
       })
       .catch((error) => {
@@ -47,24 +49,31 @@ function Admin() {
   if (loggedInUser === "") {
     return (
       <>
-        <h1>admin</h1>
-        <form action="submit">
-          <label htmlFor="emailInput">Email</label>
+        <h2 id="adminTitle">Admin</h2>
+        {error !== "" && <h3 id="error">{error}</h3>}
+        <form id="loginForm" action="submit">
+          <label className="inputLabel" htmlFor="emailInput">
+            Email
+          </label>
           <input
+            className="inputField"
             onChange={handleInput}
             name="emailInput"
             id="emailInput"
             type="text"
           />
-          <label htmlFor="passwordInput">Password</label>
+          <label className="inputLabel" htmlFor="passwordInput">
+            Password
+          </label>
           <input
+            className="inputField"
             onChange={handleInput}
             name="passwordInput"
             id="passwordInput"
             type="text"
           />
         </form>
-        <button onClick={handleSubmit} type="submit">
+        <button id="loginButton" onClick={handleSubmit} type="submit">
           login
         </button>
       </>
