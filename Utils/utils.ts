@@ -1,5 +1,5 @@
 import server from "../Api";
-import { Msg } from "../types/CustomTypes";
+import { Msg, Project, User } from "../types/CustomTypes";
 import { ref, getDownloadURL, listAll } from "firebase/storage";
 import { storage } from "../Firebase";
 
@@ -54,5 +54,26 @@ export const getFileRefs = (folderName: string) => {
     })
     .catch((error) => {
       console.log(error);
+    });
+};
+
+export const getUserById = (user_id: string): Promise<User> => {
+  return server
+    .get(`users/${user_id}`)
+    .then((userData) => {
+      console.log(userData);
+      return userData.data;
+    })
+    .catch((err) => console.log(err));
+};
+
+export const postNewProject = (newProject: Project): Promise<string> => {
+  return server
+    .post("/projects", newProject)
+    .then((res) => {
+      return res.data;
+    })
+    .catch((err) => {
+      return Promise.reject({ msg: err });
     });
 };

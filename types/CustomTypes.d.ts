@@ -51,3 +51,8 @@ export interface ContactProps {
 export interface SkillsProps {
   setCurrentPage: React.Dispatch<React.SetStateAction<string>>;
 }
+
+export interface User {
+  email: "string";
+  password: "string";
+}

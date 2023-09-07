@@ -1,6 +1,12 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getStorage } from "firebase/storage";
+import {
+  getAuth,
+  signInWithEmailAndPassword,
+  connectAuthEmulator,
+  signOut,
+} from "firebase/auth";
 import { FirebaseConfig } from "./types/CustomTypes";
 
 // TODO: Add SDKs for Firebase products that you want to use
@@ -20,5 +26,36 @@ const firebaseConfig: FirebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const storage = getStorage();
+const auth = getAuth();
 
-export { app, storage };
+if (process.env.NODE_ENV !== "production") {
+  connectAuthEmulator(auth, "http://127.0.0.1:9099");
+}
+
+export const firebaseSignIn = (
+  email: string,
+  password: string
+): Promise<string | null> => {
+  return signInWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+      const user = userCredential.user;
+      console.log(`signed in ${user.uid}`);
+      return user.uid;
+    })
+    .catch((error) => {
+      console.log(error);
+      return null;
+    });
+};
+
+export const firebaseSignOut = (): Promise<void> => {
+  return signOut(auth)
+    .then(() => {
+      console.log(`signed out`);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+};
+
+export { app, storage, auth };
