@@ -51,7 +51,7 @@ function Admin() {
       <>
         <h2 id="adminTitle">Admin</h2>
         {error !== "" && <h3 id="error">{error}</h3>}
-        <form id="loginForm" action="submit">
+        <form className="form" action="submit">
           <label className="inputLabel" htmlFor="emailInput">
             Email
           </label>
@@ -72,16 +72,16 @@ function Admin() {
             id="passwordInput"
             type="text"
           />
+          <button className="submitButton" onClick={handleSubmit} type="submit">
+            login
+          </button>
         </form>
-        <button id="loginButton" onClick={handleSubmit} type="submit">
-          login
-        </button>
       </>
     );
   } else {
     return (
       <>
-        <p>Logged in!</p>
+        <p id="loginNotification">Logged in!</p>
         <AddProject />
       </>
     );

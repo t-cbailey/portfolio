@@ -75,7 +75,7 @@ function AddProject() {
     return (
       <>
         <h2 id="addProjTitle">Add project</h2>
-        <form id="inputForm">
+        <form className="form">
           <label className="inputLabel" htmlFor="name">
             name
           </label>
@@ -147,10 +147,10 @@ function AddProject() {
             name="stack"
             type="text"
           />
+          <button className="submitButton" onClick={handleSubmit} type="submit">
+            Submit
+          </button>
         </form>
-        <button onClick={handleSubmit} type="submit">
-          Submit
-        </button>
       </>
     );
 }
