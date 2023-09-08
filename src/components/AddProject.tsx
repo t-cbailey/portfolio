@@ -1,7 +1,6 @@
-import React from "react";
+import React, { ButtonHTMLAttributes } from "react";
 import "../styling/addProject.css";
 import { postNewProject } from "../../Utils/utils";
-import { useNavigate } from "react-router";
 
 function AddProject() {
   const [input, setInput] = React.useState({
@@ -15,8 +14,6 @@ function AddProject() {
     stack: "",
   });
   const [response, setResponse] = React.useState("");
-
-  const navigate = useNavigate();
 
   const handleInputChange = (
     e:
@@ -54,7 +51,8 @@ function AddProject() {
     });
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
     return postNewProject(input).then((res) => {
       setResponse(res);
     });
@@ -67,8 +65,12 @@ function AddProject() {
   if (response !== "") {
     return (
       <>
-        <h2>{response}</h2>
-        <button onClick={handleBack}>back</button>
+        <div id="successContainer">
+          <h2 className="successItem">{response}</h2>
+          <button className="successItem submitButton" onClick={handleBack}>
+            back
+          </button>
+        </div>
       </>
     );
   } else
