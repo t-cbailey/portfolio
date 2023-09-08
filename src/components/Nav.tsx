@@ -15,7 +15,7 @@ function Nav({ currentPage, setCurrentPage }: NavProps) {
   };
 
   return (
-    <nav>
+    <nav id="MainNav">
       <IconContext.Provider
         value={{
           size: "2em",

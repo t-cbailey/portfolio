@@ -1,88 +1,64 @@
 import React from "react";
-import { firebaseSignIn } from "../../Firebase";
-import { getUserById } from "../../Utils/utils";
 import AddProject from "./AddProject";
 import "../styling/admin.css";
+import Login from "./Login";
+import DeleteProject from "./DeleteProject";
+import { getProjects } from "../../Utils/utils";
 
 function Admin() {
-  const [input, setInput] = React.useState({
-    emailInput: "",
-    passwordInput: "",
-  });
   const [loggedInUser, setLoggedInUser] = React.useState("");
   const [error, setError] = React.useState("");
+  const [selectedPage, setSelectedPage] = React.useState("");
+  const [projects, setProjects] = React.useState([]);
 
-  const handleInput = (event: React.ChangeEvent<HTMLInputElement>) => {
-    event.preventDefault();
-    const { name, value } = event.target;
-    if (name === "emailInput") {
-      setInput((curr) => {
-        curr.emailInput = value;
-        return curr;
-      });
-    } else if (name === "passwordInput") {
-      setInput((curr) => {
-        curr.passwordInput = value;
-        return curr;
-      });
-    }
-  };
+  React.useEffect(() => {
+    getProjects().then((res) => {
+      if (res.data && res.data.data) {
+        const projArr = res.data.data;
+        setProjects(projArr);
+      } else {
+        return [];
+      }
+    });
+  }, []);
 
-  const handleSubmit = (event: React.FormEvent<HTMLButtonElement>) => {
-    event.preventDefault();
-    firebaseSignIn(input.emailInput, input.passwordInput)
-      .then((userId) => {
-        if (userId) {
-          getUserById(userId).then((result) => {
-            const user = result;
-            setLoggedInUser(user.email);
-          });
-        } else {
-          setError("incorrect credentials");
-        }
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+  const handlePageSelect = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    const target = e.target as HTMLButtonElement;
+    const { value } = target;
+    setSelectedPage(value);
   };
 
   if (loggedInUser === "") {
     return (
-      <>
-        <h2 id="adminTitle">Admin</h2>
-        {error !== "" && <h3 id="error">{error}</h3>}
-        <form className="form" action="submit">
-          <label className="inputLabel" htmlFor="emailInput">
-            Email
-          </label>
-          <input
-            className="inputField"
-            onChange={handleInput}
-            name="emailInput"
-            id="emailInput"
-            type="text"
-          />
-          <label className="inputLabel" htmlFor="passwordInput">
-            Password
-          </label>
-          <input
-            className="inputField"
-            onChange={handleInput}
-            name="passwordInput"
-            id="passwordInput"
-            type="text"
-          />
-          <button className="submitButton" onClick={handleSubmit} type="submit">
-            login
-          </button>
-        </form>
-      </>
+      <Login
+        setLoggedInUser={setLoggedInUser}
+        setError={setError}
+        error={error}
+      />
     );
   } else {
     return (
       <>
         <p id="loginNotification">Logged in!</p>
-        <AddProject />
+        <nav className="adminNav">
+          <ul id="adminNavItems">
+            <li className="adminNavItem">
+              <button value="Create Project" onClick={handlePageSelect}>
+                Create Project
+              </button>
+            </li>
+            <li className="adminNavItem">
+              <button value="Delete Project" onClick={handlePageSelect}>
+                Delete Project
+              </button>
+            </li>
+          </ul>
+        </nav>
+        {selectedPage === "Create Project" && <AddProject />}
+        {selectedPage === "Delete Project" && (
+          <DeleteProject projects={projects} />
+        )}
       </>
     );
   }

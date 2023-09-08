@@ -61,7 +61,6 @@ export const getUserById = (user_id: string): Promise<User> => {
   return server
     .get(`users/${user_id}`)
     .then((userData) => {
-      console.log(userData);
       return userData.data;
     })
     .catch((err) => console.log(err));
@@ -70,6 +69,17 @@ export const getUserById = (user_id: string): Promise<User> => {
 export const postNewProject = (newProject: Project): Promise<string> => {
   return server
     .post("/projects", newProject)
+    .then((res) => {
+      return res.data;
+    })
+    .catch((err) => {
+      return Promise.reject({ msg: err });
+    });
+};
+
+export const deleteProjectByID = (project_id: string): Promise<string> => {
+  return server
+    .delete(`/projects/${project_id}`)
     .then((res) => {
       return res.data;
     })
