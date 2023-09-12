@@ -62,6 +62,10 @@ export interface DeleteProjectProps {
   projects: ProjectRes[];
   setProjects: Function;
 }
+
+export interface PatchProjectProps {
+  projects: ProjectRes[];
+}
 export interface User {
   email: "string";
   password: "string";

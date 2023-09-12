@@ -4,6 +4,7 @@ import "../styling/admin.css";
 import Login from "./Login";
 import DeleteProject from "./DeleteProject";
 import { getProjects } from "../../Utils/utils";
+import PatchProject from "./PatchProject";
 
 function Admin() {
   const [loggedInUser, setLoggedInUser] = React.useState("");
@@ -53,12 +54,20 @@ function Admin() {
                 Delete Project
               </button>
             </li>
+            <li className="adminNavItem">
+              <button value="Edit Project" onClick={handlePageSelect}>
+                Edit Project
+              </button>
+            </li>
           </ul>
         </nav>
         <div id="adminPageContainer">
           {selectedPage === "Create Project" && <AddProject />}
           {selectedPage === "Delete Project" && (
             <DeleteProject projects={projects} setProjects={setProjects} />
+          )}
+          {selectedPage === "Edit Project" && (
+            <PatchProject projects={projects} />
           )}
         </div>
       </>
