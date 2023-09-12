@@ -60,6 +60,7 @@ export interface LoginProps {
 
 export interface DeleteProjectProps {
   projects: ProjectRes[];
+  setProjects: Function;
 }
 export interface User {
   email: "string";

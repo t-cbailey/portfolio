@@ -55,10 +55,12 @@ function Admin() {
             </li>
           </ul>
         </nav>
-        {selectedPage === "Create Project" && <AddProject />}
-        {selectedPage === "Delete Project" && (
-          <DeleteProject projects={projects} />
-        )}
+        <div id="adminPageContainer">
+          {selectedPage === "Create Project" && <AddProject />}
+          {selectedPage === "Delete Project" && (
+            <DeleteProject projects={projects} setProjects={setProjects} />
+          )}
+        </div>
       </>
     );
   }
