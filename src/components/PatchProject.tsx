@@ -80,17 +80,20 @@ function PatchProject({ projects }: PatchProjectProps) {
 
   if (selectedProjectID === "") {
     return (
-      <ul>
-        {projects.map((project: ProjectRes) => {
-          return (
-            <li key={project.id}>
-              <button value={project.id} onClick={handleEditSelect}>
-                {project.name} {project.id}
-              </button>
-            </li>
-          );
-        })}
-      </ul>
+      <>
+        <h2>Edit Project</h2>
+        <ul>
+          {projects.map((project: ProjectRes) => {
+            return (
+              <li key={project.id}>
+                <button value={project.id} onClick={handleEditSelect}>
+                  {project.name} {project.id}
+                </button>
+              </li>
+            );
+          })}
+        </ul>
+      </>
     );
   } else if (success) {
     return <h3>{success}</h3>;

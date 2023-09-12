@@ -1,5 +1,5 @@
 import server from "../Api";
-import { Msg, Project, ProjectRes, User } from "../types/CustomTypes";
+import { Msg, Project, User } from "../types/CustomTypes";
 import { ref, getDownloadURL, listAll } from "firebase/storage";
 import { storage } from "../Firebase";
 

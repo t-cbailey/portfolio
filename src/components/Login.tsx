@@ -65,7 +65,7 @@ function Login({ setLoggedInUser, setError, error }: LoginProps) {
           onChange={handleInput}
           name="passwordInput"
           id="passwordInput"
-          type="text"
+          type="password"
         />
         <button className="submitButton" onClick={handleSubmit} type="submit">
           login
