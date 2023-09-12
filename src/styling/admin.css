@@ -35,3 +35,7 @@ ul {
   margin: 0% auto 1%;
   padding-left: none;
 }
+
+#adminPageContainer {
+  text-align: center;
+}
