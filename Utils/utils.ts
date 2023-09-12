@@ -1,5 +1,5 @@
 import server from "../Api";
-import { Msg, Project, User } from "../types/CustomTypes";
+import { Msg, Project, ProjectRes, User } from "../types/CustomTypes";
 import { ref, getDownloadURL, listAll } from "firebase/storage";
 import { storage } from "../Firebase";
 
@@ -80,6 +80,20 @@ export const postNewProject = (newProject: Project): Promise<string> => {
 export const deleteProjectByID = (project_id: string): Promise<string> => {
   return server
     .delete(`/projects/${project_id}`)
+    .then((res) => {
+      return res.data;
+    })
+    .catch((err) => {
+      return Promise.reject({ msg: err });
+    });
+};
+
+export const editProjectByID = (
+  project_id: string,
+  data: Project
+): Promise<string> => {
+  return server
+    .patch(`/projects/${project_id}`, data)
     .then((res) => {
       return res.data;
     })
