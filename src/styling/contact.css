@@ -1,4 +1,4 @@
-#contactForm {
+.form {
   margin: 5% auto;
   width: 80%;
   max-width: 80%;
@@ -38,12 +38,12 @@
 }
 
 @media only screen and (min-width: 1200px) {
-  #contactForm {
+  .form {
     width: 50%;
     max-width: 80%;
   }
 
-  #submitButton {
+  .submitButton {
     align-self: center;
     width: 20%;
   }

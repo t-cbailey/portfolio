@@ -1,0 +1,16 @@
+#addProjTitle {
+  text-align: center;
+}
+
+#successContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 50%;
+  margin: auto;
+}
+
+.successItem {
+  margin: 5% 0;
+}

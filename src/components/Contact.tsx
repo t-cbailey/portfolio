@@ -57,7 +57,7 @@ function Contact({ setCurrentPage }: ContactProps) {
   else
     return (
       <>
-        <form id="contactForm">
+        <form className="form">
           <input
             type="text"
             placeholder="Name"
@@ -82,7 +82,7 @@ function Contact({ setCurrentPage }: ContactProps) {
             placeholder="Message"
             {...messageBody}
           />
-          <button id="submitButton" type="submit" onClick={handleSubmit}>
+          <button className="submitButton" type="submit" onClick={handleSubmit}>
             Submit
           </button>
         </form>

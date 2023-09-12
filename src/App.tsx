@@ -9,6 +9,7 @@ import About from "./components/About";
 import { Routes, Route } from "react-router-dom";
 import SingleProjectPage from "./components/SingleProjectPage";
 import React from "react";
+import Admin from "./components/Admin";
 
 function App() {
   const [currentPage, setCurrentPage] = React.useState<string>("");
@@ -43,6 +44,7 @@ function App() {
           path="/contact"
           element={<Contact setCurrentPage={setCurrentPage} />}
         />
+        <Route path="/admin" element={<Admin />} />
       </Routes>
     </>
   );

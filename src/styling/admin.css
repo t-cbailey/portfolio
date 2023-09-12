@@ -1,0 +1,37 @@
+.adminTitle {
+  text-align: center;
+}
+
+#error {
+  color: red;
+  margin-left: 10%;
+}
+
+#loginNotification {
+  margin: 0 0 0 5%;
+}
+
+.adminNav {
+  background-color: none;
+}
+.adminNavItem button {
+  background-color: white;
+  border: none;
+  border-radius: 0;
+  border-left: 1px solid;
+}
+
+.adminNavItem {
+  list-style: none;
+}
+ul {
+  padding-left: 0;
+}
+#adminNavItems {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  max-width: 60vw;
+  margin: 0% auto 1%;
+  padding-left: none;
+}

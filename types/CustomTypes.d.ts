@@ -51,3 +51,17 @@ export interface ContactProps {
 export interface SkillsProps {
   setCurrentPage: React.Dispatch<React.SetStateAction<string>>;
 }
+
+export interface LoginProps {
+  setLoggedInUser: React.Dispatch<React.SetStateAction<string>>;
+  setError: React.Dispatch<React.SetStateAction<string>>;
+  error: string;
+}
+
+export interface DeleteProjectProps {
+  projects: ProjectRes[];
+}
+export interface User {
+  email: "string";
+  password: "string";
+}
