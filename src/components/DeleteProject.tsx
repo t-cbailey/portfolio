@@ -23,11 +23,13 @@ function DeleteProject({ projects, setProjects }: DeleteProjectProps) {
   const deleteProject = (value: string) => {
     deleteProjectByID(value).then((res) => {
       setSuccessMsg(res);
-      projects.forEach((project, i) => {
+      const tempProjects = [...projects];
+      tempProjects.forEach((project, i) => {
         if (project.id === value) {
-          projects.splice(i, 1);
+          tempProjects.splice(i, 1);
         }
       });
+      setProjects([...tempProjects]);
     });
   };
 
