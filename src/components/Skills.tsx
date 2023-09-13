@@ -1,6 +1,6 @@
 import "../styling/skills.css";
 import React, { useState } from "react";
-import css3 from "../assets/icons/css3.svg";
+import css from "../assets/icons/css.svg";
 import express from "../assets/icons/express.svg";
 import firebase from "../assets/icons/firebase.svg";
 import html5 from "../assets/icons/html5.svg";
@@ -14,7 +14,7 @@ import typescript from "../assets/icons/typescript.svg";
 import { SkillsProps } from "../../types/CustomTypes";
 
 function Skills({ setCurrentPage }: SkillsProps) {
-  const [iconArr, setIconArr] = useState<string[]>([]);
+  const [iconArr, setIconArr] = useState<{ svg: string; name: string }[]>([]);
 
   React.useEffect(() => {
     setCurrentPage("Skills");
@@ -22,17 +22,17 @@ function Skills({ setCurrentPage }: SkillsProps) {
 
   React.useEffect(() => {
     const icons = [
-      css3,
-      express,
-      firebase,
-      html5,
-      javascript,
-      jest,
-      materialui,
-      nodejs,
-      postgresql,
-      react,
-      typescript,
+      { svg: css, name: "CSS3" },
+      { svg: express, name: "Express.js" },
+      { svg: firebase, name: "Firebase" },
+      { svg: html5, name: "HTML" },
+      { svg: javascript, name: "JavaScript" },
+      { svg: jest, name: "Jest" },
+      { svg: materialui, name: "MUI" },
+      { svg: nodejs, name: "Node.js" },
+      { svg: postgresql, name: "PostgreSQL" },
+      { svg: react, name: "React" },
+      { svg: typescript, name: "TypeScript" },
     ];
     setIconArr(icons);
   }, []);
@@ -41,7 +41,17 @@ function Skills({ setCurrentPage }: SkillsProps) {
     <>
       <div id="iconContainer">
         {iconArr.map((icon) => {
-          return <img className="techIcon" key={icon} src={icon} alt={icon} />;
+          return (
+            <div className="singleIconContainer">
+              <img
+                className="techIcon"
+                key={icon.name}
+                src={icon.svg}
+                alt={icon.name}
+              />
+              <p>{icon.name}</p>
+            </div>
+          );
         })}
       </div>
     </>

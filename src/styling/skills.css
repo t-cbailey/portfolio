@@ -5,6 +5,13 @@
   align-items: center;
   justify-content: center;
   animation: backgroundFade 2s;
+  margin-top: 5%;
+}
+
+.singleIconContainer {
+  width: 15%;
+  text-align: center;
+  margin-bottom: 5%;
 }
 .techIcon {
   max-height: 10vh;
