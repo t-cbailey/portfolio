@@ -3,6 +3,11 @@
   width: 100%;
   margin-bottom: 2px;
 }
+#carouselContainer {
+  border-top: black solid 2px;
+  border-bottom: black solid 2px;
+  margin: 5% 0;
+}
 
 .projectContainer {
   display: flex;
