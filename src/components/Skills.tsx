@@ -11,6 +11,8 @@ import nodejs from "../assets/icons/nodejs.svg";
 import postgresql from "../assets/icons/postgresql.svg";
 import react from "../assets/icons/react.svg";
 import typescript from "../assets/icons/typescript.svg";
+import nextjs from "../assets/icons/nextjs.svg";
+import tailwindcss from "../assets/icons/tailwindcss.svg";
 import { SkillsProps } from "../../types/CustomTypes";
 
 function Skills({ setCurrentPage }: SkillsProps) {
@@ -33,6 +35,8 @@ function Skills({ setCurrentPage }: SkillsProps) {
       { svg: postgresql, name: "PostgreSQL" },
       { svg: react, name: "React" },
       { svg: typescript, name: "TypeScript" },
+      { svg: nextjs, name: "Next.js" },
+      { svg: tailwindcss, name: "Tailwind CSS" },
     ];
     setIconArr(icons);
   }, []);
