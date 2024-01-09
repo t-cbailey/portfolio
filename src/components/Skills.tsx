@@ -13,6 +13,7 @@ import react from "../assets/icons/react.svg";
 import typescript from "../assets/icons/typescript.svg";
 import nextjs from "../assets/icons/nextjs.svg";
 import tailwindcss from "../assets/icons/tailwindcss.svg";
+import csharp from "../assets/icons/csharp.svg";
 import { SkillsProps } from "../../types/CustomTypes";
 
 function Skills({ setCurrentPage }: SkillsProps) {
@@ -24,6 +25,7 @@ function Skills({ setCurrentPage }: SkillsProps) {
 
   React.useEffect(() => {
     const icons = [
+      { svg: csharp, name: "C#" },
       { svg: css, name: "CSS3" },
       { svg: express, name: "Express.js" },
       { svg: firebase, name: "Firebase" },
