@@ -1,7 +1,7 @@
 import React from "react";
 import "../styling/about.css";
 import { Link } from "react-router-dom";
-import CV from "../assets/Tim Bailey CV.pdf";
+import CV from "../assets/TimBaileyCV.pdf";
 import { AboutProps } from "../../types/CustomTypes";
 import backgroundJpeg from "../assets/backgroundImg.jpg";
 import backgroundWebp from "../assets/backgroundImg.webp";
